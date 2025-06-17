@@ -1,0 +1,209 @@
+
+.rent-cards {
+    display: flex;
+    justify-content: center;
+    padding: 20px;
+    margin-bottom: 30px;
+    font-family: 'Cairo', sans-serif;
+
+  }
+  
+  .rent-card {
+    border: 1px solid #ccc;
+    border-radius: 16px;
+    max-width: 300px;
+    width: 100%;
+    text-align: left;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    font-family: 'Cairo', sans-serif;
+
+
+  }
+  
+  .rent-card img {
+    /* max-width: 300px; */
+    width: 100%;
+    height: 200px;
+    border-radius: 16px;
+    object-fit: cover;
+    display: block; 
+    margin: 0;
+    padding: 0; 
+  }
+  
+  
+  .code, .size{
+    margin-left: 10px;
+    font-family: 'Cairo', sans-serif;
+    font-size: 16px;
+    font-weight: 500;
+
+
+  }
+  .rent-card .price {
+    font-size: 18px !important;
+    font-weight: bold;
+    margin: 10px 10px;
+    font-family: 'Cairo', sans-serif;
+
+
+  }
+  
+  .rent-card .monthly {
+    font-size: 14px;
+    color: gray;
+    font-family: 'Cairo', sans-serif;
+
+  }
+  
+  .book-btn {
+    width: 100%;
+    padding: 12px 16px;
+    background-color: #400c5f;
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    font-family: 'Cairo', sans-serif;
+
+
+  }
+  
+  .book-btn:hover {
+    background-color: #0056b3;
+  }
+  
+
+  .rent-cards {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+    padding: 20px;
+    font-family: 'Cairo', sans-serif;
+
+  }
+  
+  .popup-overlay-rentcard {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.4);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 999;
+    font-family: 'Cairo', sans-serif;
+    margin-top: 10px;
+
+  }
+  
+  .popup-rentcard {
+    width: 100%;
+    max-width: 420px;
+    background: rgb(250, 250, 250);
+    font-family: 'Cairo', sans-serif;
+    border-radius: 12px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  
+  .popup-box-rentcard {
+    padding: 24px;
+    width: 100%;
+    box-sizing: border-box;
+  }
+  .subtitle{
+    font-size: 16px;
+  }
+  .radio-group {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-bottom: 20px;
+  }
+  
+  .radio-option {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 16px;
+    color: rgba(0, 0, 0, 0.7);
+  }
+  
+  .date-input {
+    padding: 8px 10px;
+    font-size: 14px;
+    box-sizing: border-box;
+  }
+  
+  .popup-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 14px 24px;
+    background-color: #400c5f;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    box-sizing: border-box;
+    border-bottom-left-radius: 12px;
+    border-bottom-right-radius: 12px;
+  }
+  
+  
+  .total {
+    font-weight: bold;
+    font-size: 16px;
+    color: #fff;
+    font-family: 'Cairo', sans-serif;
+
+  }
+  
+  .rent-btn, .close-btn {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 16px;
+    cursor: pointer;
+    font-family: 'Cairo', sans-serif;
+
+  }
+  
+  .rent-btn {
+    background-color: #fff;
+    color: #400c5f;
+
+  }
+  .rent-btn:hover{
+    background-color: #400c5f;
+    color: #fff;
+    border: 1px solid #fff;
+    transition: color 0.5s ease-in-out;
+    font-family: 'Cairo', sans-serif;
+
+
+  }
+  .rent-card-buttons{
+display: flex;
+gap: 10px;  }
+  .close-btn {
+    background-color: #ccc;
+    color: #333;
+    font-family: 'Cairo', sans-serif;
+
+  }
+  /* .radio-option span {
+    color: #333;
+  } */
+  
+  .radio-option span.selected {
+    color: orange;
+    font-weight: 600;
+    font-family: 'Cairo', sans-serif;
+
+  }
+  

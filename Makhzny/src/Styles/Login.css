@@ -1,0 +1,188 @@
+
+.login-container {
+width: 50vw;  
+  margin: 60px auto;
+    padding: 10px 50px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    box-shadow: 0 0 15px rgba(0,0,0,0.1);
+    background-color: #fff;
+    text-align: center;
+    font-family: 'Poppins', sans-serif;
+    border-radius: 25px;
+
+  }
+  
+ .heading{
+    margin-bottom: 10px;
+    font-family: 'Poppins', sans-serif;
+font-size: 35px;
+font-weight: 500;   
+line-height: 49px;
+color: #410B5F;
+text-align: center;
+  }
+  
+  .login-container input {
+    font-family: 'Poppins', sans-serif;
+
+    width: 100%;
+    padding: 0.75rem;
+    margin: 0.5rem 0;
+    border-radius: 15px;
+    border: 1px solid #ccc;
+    font-size: 1rem;
+    background-color: #EEE;
+  }
+  
+  .login-container label {
+    display: block;
+    text-align: left;
+    margin-top: 1rem;
+    margin-bottom: 0.25rem;
+    font-size: 0.95rem;
+    color: #410B5F;
+  }
+  .btns{
+    display: flex;
+    flex-direction: column;
+  }
+  .login-container .btn1 {
+    width: 100%;
+    padding: 0.75rem;
+    margin: 1rem 1%;
+    border: none;
+    border-radius: 15px;
+    background-color: #410B5F;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  .btn2{
+    color: #410B5F;
+    /* font-weight: bold; */
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    border: none;
+    background-color: transparent;
+    margin-bottom: 10px;
+  
+  }
+  .btn2:hover{
+text-decoration: underline;
+  }
+  
+.signup-heading{
+    /* width: 100%; */
+    color: #410B5F;;
+    font-size: 2.1875rem;
+    text-align: center !important;
+    font-family:  "Cairo", "Odoo Unicode Support Noto", sans-serif;
+}
+  
+p{
+    font-size: 11px;
+    font-weight: 400;
+    color: #410B5F;
+    line-height: 15.4px;
+}
+input{
+    border-radius: 25px !important;
+    background-color: #F4F4F4 !important;
+    border: none !important;
+    font-size: 16px !important;
+}
+
+
+@media (max-width: 1024px) {
+  .login-container {
+    width: 70vw;
+    padding: 20px 40px;
+  }
+
+  .heading {
+    font-size: 30px;
+    line-height: 44px;
+  }
+
+  .signup-heading {
+    font-size: 30px;
+  }
+
+  .login-container input {
+    font-size: 15px;
+  }
+
+  .login-container label {
+    font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .login-container {
+    width: 85vw;
+    padding: 20px;
+  }
+
+  .heading {
+    font-size: 26px;
+    line-height: 38px;
+  }
+
+  .signup-heading {
+    font-size: 24px;
+  }
+
+  .login-container input {
+    font-size: 14px;
+  }
+
+  .btn1 {
+    font-size: 15px;
+    padding: 0.6rem;
+  }
+
+  .btn2 {
+    font-size: 14px;
+  }
+
+  p {
+    font-size: 10px;
+  }
+}
+
+@media (max-width: 480px) {
+  .login-container {
+    width: 90vw;
+    margin: 30px auto;
+    padding: 15px;
+  }
+
+  .heading {
+    font-size: 22px;
+    line-height: 32px;
+  }
+
+  .signup-heading {
+    font-size: 20px;
+  }
+
+  .login-container input {
+    font-size: 13px;
+    padding: 0.6rem;
+  }
+
+  .btn1 {
+    font-size: 14px;
+    padding: 0.6rem;
+  }
+
+  .btn2 {
+    font-size: 13px;
+  }
+
+  p {
+    font-size: 9px;
+  }
+}

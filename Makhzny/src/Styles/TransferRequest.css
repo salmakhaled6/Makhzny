@@ -1,0 +1,171 @@
+.transferReques-page{
+  display: flex;
+  flex-direction: column;
+  font-family: 'Cairo', sans-serif;
+
+
+}
+
+.transfer-request {
+    background-color: #f6ebf9; 
+    margin-top: 0;
+width: 100%;  
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  font-family: 'Cairo', sans-serif;
+
+  }
+  .transfer-request-box{
+    height: 133px;
+    padding: 0px 18%;
+    text-align: left;
+    font-family: 'Cairo', sans-serif;
+
+  }
+  .transfer-request-box h2 {
+    font-size: 40px;
+  color:  rgb(33, 37, 41);
+    margin-bottom: 16px;
+    font-family: 'Cairo', sans-serif;
+ font-weight: 500;
+ line-height: 56px;
+  }
+  
+  .transfer-request-box p {
+    color: rgba(0, 0, 0, 0.5);
+    font-family: 'Cairo', sans-serif;
+
+  font-size:   16px;
+    font-weight :500;
+    line-height :27.2px
+  }
+
+  .transfer-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+    margin-top: 30px;
+    margin-bottom: 30px;
+  }
+  
+  .transfer-content img {
+    max-width: 250px;
+    height: auto;
+  }
+  
+  .transfer-content p {
+    font-size: 20px;
+    color: #7B7676 !important;
+    font-family: 'Cairo', sans-serif;
+
+  }
+  
+  .request-btn {
+    padding: 10px 20px;
+    background-color: #410B5F;
+    color: #FFFFFF;
+    font-weight: 700;
+    line-height: 30px;
+    border: none;
+    border-radius: 16px;
+    cursor: pointer;
+    max-width: 648px;
+    width: 100%;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+    font-family: 'Cairo', sans-serif;
+
+  }
+  
+  .request-btn:hover {
+    background-color: #0056b3;
+  }
+
+  @media (max-width: 1024px) {
+    .transfer-request-box {
+      padding: 0px 10%;
+    }
+  
+    .transfer-request-box h2 {
+      font-size: 32px;
+      line-height: 44px;
+    }
+  
+    .transfer-request-box p {
+      font-size: 15px;
+      line-height: 24px;
+    }
+  
+    .transfer-content img {
+      max-width: 200px;
+    }
+  
+    .request-btn {
+      max-width: 500px;
+      font-size: 15px;
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .transfer-request-box {
+      display: none;
+    }
+  
+    .transfer-request-box h2 {
+      font-size: 26px;
+      line-height: 36px;
+    }
+  
+    .transfer-request-box p {
+      font-size: 14px;
+      line-height: 22px;
+    }
+  
+    .transfer-content {
+      gap: 12px;
+    }
+  
+    .transfer-content img {
+      max-width: 160px;
+    }
+  
+    .transfer-content p {
+      font-size: 16px;
+      text-align: center;
+      padding: 0 10px;
+    }
+  
+    .request-btn {
+      font-size: 14px;
+      padding: 8px 16px;
+      border-radius: 12px;
+      max-width: 90%;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .transfer-request-box h2 {
+      font-size: 22px;
+      line-height: 30px;
+    }
+  
+    .transfer-request-box p {
+      font-size: 13px;
+      line-height: 20px;
+    }
+  
+    .transfer-content img {
+      max-width: 120px;
+    }
+  
+    .transfer-content p {
+      font-size: 14px;
+    }
+  
+    .request-btn {
+      font-size: 13px;
+      padding: 8px 14px;
+    }
+  }
+  

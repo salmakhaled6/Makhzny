@@ -1,0 +1,282 @@
+.request-quote-container {
+    font-family: 'Cairo', sans-serif;
+    display: flex;
+    flex-direction: column;
+    padding-bottom: 30px;
+  }
+  
+  .steps-indicator {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 2rem;
+    margin-top: 30px;
+    font-family: 'Cairo', sans-serif;
+
+  }
+  
+  .step-item {
+    text-align: center;
+  }
+  
+  .step-circle {
+    width: 80px;
+    height: 80px;
+    background-color: #ccc;
+    border-radius: 50%;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    margin: 0 auto;
+    transition: 0.3s ease;
+    font-family: 'Cairo', sans-serif;
+
+  }
+  
+  .step-circle.active {
+    background-color:rgba(209, 104, 0,1);
+  }
+  
+  .step-label {
+    margin-top: 0.5rem;
+    font-size: 14px;
+    font-weight: 500;
+    font-family: 'Cairo', sans-serif;
+
+    
+  }
+  
+  .step-line {
+    width: 40px;
+    height: 0;
+    border-top: 2px dashed #ccc;
+    margin: 0px 10px;
+    margin-bottom: 20px;
+  }
+  
+  .step-line.active {
+    border-top: 2px dotted rgba(209, 104, 0, 1);
+  }
+  
+  
+  .step-content {
+    text-align: center;
+    margin-top: 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-family: 'Cairo', sans-serif;
+
+  }
+  
+  .step-content button {
+    margin: 10px;
+    padding: 10px 20px;
+    border: none;
+    background-color:transparent;
+    color: rgb(33, 37, 41);
+    border-radius: 6px;
+    cursor: pointer;
+    max-width: 504px;
+    width: 100%;
+    border: 1px solid #410B5F;
+    font-family: 'Cairo', sans-serif;
+
+  }
+  
+  .step-content button:hover {
+    background-color: #410B5F;
+    color: white;
+  }
+  .area-buttons-group {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 20px;
+  }
+  
+  .step-buttons {
+    display: flex;
+    gap: 10px;
+    margin-top: 20px;
+  }
+  
+  .area-buttons-group button {
+    max-width: unset;
+    width: auto;
+    flex-shrink: 0;
+  }
+  
+.popup-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  font-family: 'Cairo', sans-serif;
+
+}
+
+.popup-box {
+  background: #fff;
+  padding: 30px 25px;
+  border-radius: 10px;
+  max-width: 500px;
+  width: 100%;
+
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  animation: fadeIn 0.3s ease-in-out;
+}
+.popup-box h3{
+  text-align: left;
+  font-size: 24px;
+  color: #410B5F;
+  margin-bottom: 20px;
+  font-family: 'Cairo', sans-serif;
+
+}
+
+.popup-box input {
+  width: 95%;
+  padding: 10px 12px;
+  margin-bottom: 25px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 10px;
+  font-family: 'Cairo', sans-serif;
+
+}
+
+.popup-actions {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.popup-actions button {
+  flex: 1;
+  padding: 10px;
+  font-size: 14px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background 0.2s ease;
+  font-family: 'Cairo', sans-serif;
+
+}
+
+.popup-actions button:first-child {
+  background-color: #ccc;
+  color: #333;
+  font-family: 'Cairo', sans-serif;
+
+}
+
+.popup-actions button:last-child {
+  background-color: #410B5F;
+  color: white;
+  font-family: 'Cairo', sans-serif;
+
+}
+
+.popup-actions button:hover {
+  opacity: 0.9;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+@media (max-width: 768px) {
+  .transfer-request{
+    display: none;
+  }
+  .request-quote-container {
+    padding: 1rem;
+    padding-bottom: 20px;
+  }
+
+  .step-circle {
+    width: 60px;
+    height: 60px;
+    font-size: 14px;
+  }
+
+  .step-label {
+    font-size: 12px;
+  }
+
+  .step-line {
+    width: 20px;
+    margin: 0 5px;
+  }
+
+  .step-content button {
+    font-size: 14px;
+    padding: 8px 16px;
+    max-width: 100%;
+  }
+
+  .popup-box {
+    padding: 20px;
+    max-width: 90%;
+  }
+
+  .popup-box h3 {
+    font-size: 20px;
+  }
+
+  .popup-box input {
+    width: 100%;
+    font-size: 12px;
+  }
+
+  .popup-actions {
+    flex-direction: column;
+  }
+
+  .popup-actions button {
+    width: 100%;
+    margin-top: 10px;
+  }
+}
+
+@media (max-width: 480px) {
+  .step-circle {
+    width: 50px;
+    height: 50px;
+    font-size: 12px;
+  }
+
+  .step-label {
+    font-size: 10px;
+  }
+
+  .step-line {
+    width: 15px;
+    margin: 0 4px;
+  }
+
+  .popup-box h3 {
+    font-size: 18px;
+  }
+
+  .popup-box input {
+    font-size: 11px;
+  }
+}

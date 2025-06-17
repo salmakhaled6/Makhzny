@@ -1,0 +1,92 @@
+.howit-works-content {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    align-items: center;
+    padding: 40px 0;
+    font-family: 'Cairo', sans-serif;
+  
+  }
+  
+  .howit-step {
+    font-family: 'Cairo', sans-serif;
+
+    display: flex;
+    width: 100%;
+    max-width: 1000px;
+    /* border: 2px solid #ddd; */
+    border-radius: 20px;
+    background-color: #fff;
+    align-items: center;
+    overflow: hidden;
+    box-shadow: rgba(0, 0, 0, 0.15) 0px 8px 16px 0px;
+    max-height: 250px;
+    height: 100%;
+  }
+  
+  .howit-step.image-right {
+    justify-content: space-between;
+  }
+  
+  .howit-step.image-right .howit-text {
+    padding: 20px;
+    flex: 1;
+  }
+  
+  .howit-step.image-right img {
+    width: 268px;
+    height: 260px;
+    object-fit: cover;
+  }
+  
+  .howit-step.image-close {
+    justify-content: flex-start;
+  }
+  
+  .howit-step.image-close img {
+    width: 268px;
+    height: 260px;
+    object-fit: cover;
+    /* margin-left: 20px; */
+  }
+  
+  .howit-step.image-close .howit-text {
+    padding: 20px;
+    text-align: left;
+  }
+  
+  .howit-text h3 {
+    font-size: 28px;
+    font-weight: 700;
+    line-height: 39.2px;
+    margin-bottom: 10px;
+    color: rgb(33, 37, 41);
+    font-family: 'Cairo', sans-serif;
+    position: relative;
+    padding-left: 20px;
+  }
+  
+  .howit-text h3::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 10px;
+    height: 10px;
+    background-color:#D16800;;
+    border-radius: 50%;
+  }
+  
+  
+  .howit-text p {
+    max-width: 500px;
+    width: 100%;
+    font-size: 20px;
+    font-weight: 500;
+    line-height: 28px;
+    color: rgb(33, 37, 41);
+    font-family: 'Cairo', sans-serif;
+
+  }
+  
