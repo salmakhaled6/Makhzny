@@ -47,21 +47,23 @@
   }
   
   .clear-btn {
-    background-color: #e74c3c;
-    color: white;
+background-color: transparent;    color: #FB9232;
+border: 1px solid #FB9232;
+
   }
   
   .clear-btn:hover {
-    background-color: #c0392b;
+    background-color: #FB9232;
+    color: white;
   }
   
   .save-btn {
-    background-color: #2ecc71;
+    background-color: #FB9232;
     color: white;
   }
   
   .save-btn:hover {
-    background-color: #27ae60;
+    background-color: #FB9232;
   }
 
   .signature-canvas {

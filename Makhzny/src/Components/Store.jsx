@@ -27,23 +27,34 @@ function Store() {
           <div className="store-icon-row">
             <div className="store-icon">
               <img src={c1} alt="item 1" />
+              <p>Personal Belongings</p>
             </div>
             <div className="store-icon">
               <img src={c2} alt="item 2" />
+              <p>Commercial Goods</p>
+
             </div>
             <div className="store-icon">
               <img src={c3} alt="item 3" />
+              <p> Food and Beverages​</p>
+
             </div>
           </div>
           <div className="store-icon-row">
             <div className="store-icon">
               <img src={c4} alt="item 4" />
+              <p>  Cosmetics and Perfumes</p>
+
             </div>
             <div className="store-icon">
               <img src={c5} alt="item 5" />
+              <p>Furniture</p>
+
             </div>
             <div className="store-icon">
               <img src={c6} alt="item 6" />
+              <p>Medical Equipment and Supplies</p>
+
             </div>
           </div>
         </div>

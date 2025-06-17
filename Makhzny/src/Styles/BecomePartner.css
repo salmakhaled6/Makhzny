@@ -1,9 +1,54 @@
 .become-partner-container {
-    padding: 2rem;
     margin: 0 auto;
     font-family: 'Cairo', sans-serif;
 
   }
+  .become-partner-bar{
+    background-color: #f6ebf9; 
+    margin-top: 0;
+  
+  width: 100%;  
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  font-family: 'Cairo', sans-serif;
+  }
+  .become-partner-box{
+    height: 133px;
+    padding: 0;
+    text-align: left;
+    font-family: 'Cairo', sans-serif;
+  }
+
+  .become-partner-box h2 {
+    font-size: 32px;
+   color:   rgb(65, 11, 95);
+     margin-bottom: 10px;
+     font-family: 'Cairo', sans-serif;
+   font-weight: 700;
+   line-height: 44px;
+   margin-top: 0;
+   width: 100%;
+   text-align: left;
+   padding-bottom: 0;
+   margin-bottom: 10px;
+   }
+   .become-partner-box strong{
+    color: rgb(209, 104, 0);
+    font-size: 40px;
+    font-weight: 700;
+    line-height: 56px;
+   }
+   
+   .become-partner-box p {
+     color:rgb(65, 11, 95);
+     font-family: 'Cairo', sans-serif;
+   width: 100%;
+   font-size:   14px;
+     font-weight :400;
+     line-height :19.6px;
+     margin-top: 0;
+     padding-top: 0;
+     
+   }
   
   .rent-bar {
     background-color: #f5f5f5;
@@ -16,21 +61,28 @@
   }
   
   .partner-form {
-    max-width: 700px;
-    font-family: 'Cairo', sans-serif;
+
+width: 100%;    font-family: 'Cairo', sans-serif;
 
     display: flex;
     flex-direction: column;
+    text-align: left;
     gap: 1rem;
+  }
+  .partner-form label{
+    width: 100%;
+    text-align: left;
   }
   
   .partner-form input,
   .partner-form textarea {
+    width: 100%;
     padding: 0.75rem;
-    border: 1px solid #ccc;
-    border-radius: 6px;
+    border: 1px solid color(srgb 0.129412 0.145098 0.160784 / 0.15) !important;
+    border-radius: 6px !important;
     font-size: 1rem;
     font-family: 'Cairo', sans-serif;
+    background-color: transparent !important;
 
   }
   
@@ -40,7 +92,7 @@
     ;
     color: white;
     border: none;
-    border-radius: 16px;
+    border-radius: 6px;
     font-size: 1rem;
     cursor: pointer;
     font-family: 'Cairo', sans-serif;
@@ -49,5 +101,10 @@
   
   .partner-form button:hover {
     background-color: #0056b3;
+  }
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1.5rem; 
   }
   

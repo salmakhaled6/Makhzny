@@ -1,7 +1,8 @@
 .get-in-touch-container {
-    max-width: 800px;
+    /* max-width: 800px; */
     margin: 0 auto;
-    padding: 2rem;
+    /* padding: 2rem; */
+    margin-bottom: 20px;
     font-family: 'Cairo', sans-serif;
   }
   
@@ -13,6 +14,47 @@
     margin-bottom: 2rem;
   }
    */
+
+   .getinTouch-bar{
+    background-color: #f6ebf9; 
+    margin-top: 0;
+  
+  width: 100%;  
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  font-family: 'Cairo', sans-serif;
+   }
+
+   .getinTouch-box{
+    height: 133px;
+    padding: 0;
+    text-align: left;
+    font-family: 'Cairo', sans-serif;
+   }
+   .getinTouch-box h2 {
+   font-size: 40px;
+  color:  rgb(33, 37, 41);
+    margin-bottom: 10px;
+    font-family: 'Cairo', sans-serif;
+  font-weight: 500;
+  line-height: 56px;
+  margin-top: 0;
+  width: 100%;
+  text-align: left;
+  padding-bottom: 0;
+  margin-bottom: 10px;
+  }
+  
+  .getinTouch-box p {
+    color: rgba(0, 0, 0, 0.5);
+    font-family: 'Cairo', sans-serif;
+  width: 100%;
+  font-size:   16px;
+    font-weight :500;
+    line-height :27.2px;
+    margin-top: 0;
+    padding-top: 0;
+    
+  }
   .contact-info {
     display: flex;
     flex-direction: column;
@@ -23,32 +65,38 @@
   }
   
   .info-box {
+    width: 100%;
     display: flex;
     align-items: center;
     gap: 1rem;
+    margin-top: 20px;
   }
   
   .info-title {
     font-weight: bold;
     font-family: 'Cairo', sans-serif;
+    font-size: 20px;
 
   }
   
   .info-text {
     margin-top: 4px;
+    font-size: 18px ;
     font-family: 'Cairo', sans-serif;
 
   }
   
   .contact-form {
+    width: 100%;
     display: flex;
     flex-direction: column;
-    gap: 1.2rem;
+    gap: 10px;
     font-family: 'Cairo', sans-serif;
 
   }
   
   .form-row {
+    width: 100%;
     display: flex;
     align-items: center;
     gap: 1rem;
@@ -73,7 +121,8 @@
     background-color: #410B5F;
     color: white;
     border: none;
-    border-radius: 6px;
+    border-radius: 16px;
+    width: 100%;
     cursor: pointer;
     font-family: 'Cairo', sans-serif;
 
@@ -81,5 +130,11 @@
   
   .form-row button:hover {
     background-color: #0056b3;
+  }
+  .container {
+    max-width: 1000px; 
+    margin: 0 auto;
+    padding: 0 20px;
+    box-sizing: border-box;
   }
   

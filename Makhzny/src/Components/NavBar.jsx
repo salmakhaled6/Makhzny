@@ -26,11 +26,11 @@ function NavBar() {
       <li><Link to="/RentNow" onClick={closeMenu}>Rent now</Link></li>
       <li><Link to="/RequestQuote" onClick={closeMenu}>Request a quote</Link></li>
       <li><Link to="/TransferRequest" onClick={closeMenu}>Moving</Link></li>
-      <li> <Link to='/howitWorks'  onClick={closeMenu}>How it works </Link> </li>
-      <li> <Link to='/FAQ'  onClick={closeMenu}>FAQ </Link> </li>
-      {/* <li> <Link to='/GetInTouch'  onClick={closeMobileMenu}>Get In Touch </Link> </li>
+      {/* <li> <Link to='/howitWorks'  onClick={closeMenu}>How it works </Link> </li>
+      <li> <Link to='/FAQ'  onClick={closeMenu}>FAQ </Link> </li> */}
+      <li> <Link to='/GetInTouch'  onClick={closeMenu}>Get In Touch </Link> </li>
 
-      <li> <Link to='/BecomePartner'  onClick={closeMobileMenu}>Become a Partner </Link> </li> */}
+      <li> <Link to='/BecomePartner'  onClick={closeMenu}>Become a Partner </Link> </li>
 
 
     </ul>

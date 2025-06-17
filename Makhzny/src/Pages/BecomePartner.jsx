@@ -4,10 +4,11 @@ import '../Styles/BecomePartner.css';
 function BecomePartner() {
   return (
     <div className="become-partner-container">
-      <div className="rent-bar">
-        <div className="rent-bar-box">
+   <div className="become-partner-bar">
+  <div className="container become-partner-box">
+
           <h2>
-            Interested in becoming a partner with <strong>Makhzny</strong>?
+            Interested in becoming a partner with <strong>Makhzny.</strong>
           </h2>
           <p>
             Please tell us about your work and how we could create something amazing together.
@@ -15,7 +16,7 @@ function BecomePartner() {
         </div>
       </div>
 
-      <form className="partner-form">
+      <form className="partner-form container">
         <label htmlFor="name">Your Name *</label>
         <input id="name" type="text" required />
 

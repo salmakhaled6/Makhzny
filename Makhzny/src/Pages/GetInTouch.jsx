@@ -4,8 +4,8 @@ import '../Styles/GetInTouch.css';
 function GetInTouch() {
   return (
     <div className="get-in-touch-container">
-      <div className="rent-bar">
-        <div className="rent-bar-box">
+      <div className="getinTouch-bar">
+        <div className="container getinTouch-box">
           <h2>Get in touch!</h2>
           <p>
             Ready to declutter your life? Contact us today to discuss your storage needs.
@@ -14,7 +14,7 @@ function GetInTouch() {
         </div>
       </div>
 
-      <div className="contact-info">
+      <div className="container contact-info">
         <div className="info-box">
           <img src="" alt="Phone Icon" />
           <div>
@@ -40,7 +40,7 @@ function GetInTouch() {
         </div>
       </div>
 
-      <form className="contact-form">
+      <form className="container contact-form">
         <div className="form-row">
           <label htmlFor="name">Your Name *</label>
           <input id="name" type="text" required />
@@ -62,7 +62,7 @@ function GetInTouch() {
         </div>
 
         <div className="form-row">
-          <label></label>
+          {/* <label></label> */}
           <button type="submit">Submit</button>
         </div>
       </form>

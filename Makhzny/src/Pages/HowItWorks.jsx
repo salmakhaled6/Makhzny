@@ -9,9 +9,10 @@ import "../Styles/Works.css";
 
 function HowItWorks() {
   return (
-    <div>
-      <div className="Rent-Bar">
-        <div className="Rent-Bar-box">
+    <div className="HowitWorks-page">
+      <div className="HowitWorks-Bar">
+      <div className="container">
+        <div className="HowitWorks-Bar-box">
           <h2>How It Works ?</h2>
           <p>
             Utilizing our state-of-the-art storage facilities is a
@@ -19,9 +20,11 @@ function HowItWorks() {
             the most of your storage experience.
           </p>
         </div>
+        </div>
       </div>
 
       <div className="howit-works-content">
+      <div className="container">
         <div className="howit-step image-right">
           <div className="howit-text">
             <h3> Storage Made Simple!</h3>
@@ -64,6 +67,7 @@ function HowItWorks() {
           </div>
         </div>
       </div>
+    </div>
     </div>
   );
 }

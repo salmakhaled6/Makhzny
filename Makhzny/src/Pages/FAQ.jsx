@@ -44,8 +44,8 @@ function FAQ() {
 
   return (
     <div className="faq-container">
-      <div className="Rent-Bar">
-        <div className="Rent-Bar-box">
+      <div className="faq-Bar">
+        <div className="faq-Bar-box">
           <h2>Frequently asked questions for individuals </h2>
           <p>Designed to provide you with quick and comprehensive answers to the most common queries. We understand that clarity is key to a seamless customer experience.
 
@@ -69,8 +69,8 @@ function FAQ() {
         ))}
       </div>
 
-      <div className="Rent-Bar">
-        <div className="Rent-Bar-box">
+      <div className="faq-Bar">
+        <div className="faq-Bar-box">
           <h2>Frequently asked questions for Companies</h2>
           <p>Designed to provide you with quick and comprehensive answers to the most common queries. We understand that clarity is key to a seamless customer experience.
 
