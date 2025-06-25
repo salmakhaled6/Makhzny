@@ -75,84 +75,58 @@ width: 100%;
     height: 211px;
     object-fit: contain;
 margin-bottom: 0;  }
-  @media (max-width: 768px) {
-    .store-container {
-      padding: 20px;
-    }
-  
-    .store-header h2 {
-      font-size: 28px;
-      line-height: 38px;
-    }
-  
-    .store-header p {
-      font-size: 18px;
-      line-height: 28px;
-    }
-  
-    .store-content {
-      flex-direction: column;
-      gap: 30px;
-      align-items: center;
-    }
-  
-    .store-illustration {
-      width: 100%;
-      max-width: 350px;
-    }
-  
-    .store-icons {
-      align-items: center;
-    }
-  
-    .store-icon-row {
-      flex-direction: column;
-      gap: 20px;
-      align-items: center;
-    }
-  
-    .store-icon img {
-      width: 120px;
-      height: auto;
-    }
+
+
+@media (max-width: 768px) {
+  .store-content {
+    flex-direction: column;
+    align-items: center;
   }
-  @media (max-width: 480px) {
-    .store-container {
-      padding: 16px;
-    }
-  
-    .store-header h2 {
-      font-size: 24px;
-      line-height: 32px;
-    }
-  
-    .store-header p {
-      font-size: 16px;
-      line-height: 24px;
-    }
-  
-    .store-content {
-      gap: 24px;
-    }
-  
-    .store-illustration {
-      max-width: 100%;
-      width: 100%;
-    }
-  
-    .store-icons {
-      gap: 16px;
-      align-items: center;
-    }
-  
-    .store-icon-row {
-      flex-direction: column;
-      gap: 16px;
-    }
-  
-    .store-icon img {
-      width: 100px;
-      height: auto;
-    }
+
+  .store-icons {
+    width: 100%;
   }
-    
+
+  .store-icon-row {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 24px;
+  }
+
+  .store-icon {
+    width: 120px;
+  }
+
+  .store-icon img {
+    width: 120px;
+    height: auto;
+  }
+}
+
+
+@media (max-width: 600px) {
+
+  
+  
+  .store-header h2 {
+    font-size: 24px;
+    line-height: 32px;
+  }
+
+  .store-header p {
+    font-size: 16px;
+    line-height: 24px;
+  }
+
+  .store-icon {
+    width: 100px;
+  }
+
+  .store-icon img {
+    width: 100px;
+  }
+
+  .store-content p {
+    font-size: 14px;
+  }
+}

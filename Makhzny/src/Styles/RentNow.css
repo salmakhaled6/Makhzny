@@ -2,179 +2,138 @@ body{
     margin: 0;
     padding: 0;
 }
-.RentNow{
-  padding: 0;
-  margin-top: 0;
+.RentNow {
   display: flex;
   flex-direction: column;
   align-items: center;
-}
-.Rent-Bar {
-    background-color: #f6ebf9; 
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100%;
-    /* margin: 40px auto; */
-    margin-top: 0;
-width: 100%;  
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  margin-top: 0;
+  padding: 0;
   font-family: 'Cairo', sans-serif;
+}
 
-  padding-top: 0;
-  }
-  .Rent-Bar-box{
-    /* height: 133px; */
-    max-width: 1200px;
-width: 100%;
-    height: 100%;
-    padding: 0px 20px;
-    text-align: left;
-  }
-  .Rent-Bar h2 {
-    font-size: 40px;
-  color:  rgb(33, 37, 41);
-margin-bottom: 3px;
-font-family: 'Cairo', sans-serif;
+.Rent-Bar {
+  width: 100%;
+  background-color: #f6ebf9;
+  display: flex;
+  justify-content: center;
+  /* padding: 40px 20px; */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  max-height: 163px;
 
- font-weight: 500;
- line-height: 56px;
-  }
-  
-  .Rent-Bar p {
-    color: rgba(0, 0, 0, 0.5);
-    /* margin: 0 auto; */
-    font-family:    Cairo, "Odoo Unicode Support Noto", sans-serif;
+}
 
-  font-size:   16px;
-    font-weight :500;
-    line-height :27.2px
-  }
-  .Rent-Bar strong{
-    color: rgb(207, 100, 9);
-    font-size: 20px;
-    font-weight: 600;
-    font-family:    Cairo, "Odoo Unicode Support Noto", sans-serif;
+.Rent-Bar-box {
+  max-width: 1200px;
+  width: 100%;
+  text-align: left;
+}
 
-  }
+.Rent-Bar h2 {
+  font-size: 36px;
+  font-weight: 600;
+  color: #212529;
+  margin-bottom: 10px;
+  line-height: 1.3;
+}
 
-  .Range-box {
-    display: flex;
-    flex-wrap: wrap;
-    font-family: 'Cairo', sans-serif;
+.Rent-Bar p {
+  font-size: 16px;
+  font-weight: 500;
+  color: rgba(0, 0, 0, 0.6);
+  line-height: 1.7;
+}
 
-    gap: 20px;
-    padding: 20px 20px;
-    /* margin: 40px 20px; */
-    margin-top: 30px;
-    margin-bottom: 30px;
-    border: 1px solid rgba(0, 0, 0, 0.3);
-    max-width: 1200px;
-    width: 100%;
-    border-radius: 12px;
-    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.05);
-    justify-content: space-between;
-    align-items: center;
-  }
-  
-  .range-filter {
-    flex: 1 1 150px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 10px;
-    background-color: transparent;
-    font-family: 'Cairo', sans-serif;
+.Rent-Bar strong {
+  color: #cf6409;
+  font-size: 18px;
+  font-weight: 600;
+}
 
-  }
-  
-  .range-filter p {
-    font-weight: 500;
-    margin-bottom: 5px;
-    color:  rgb(33, 37, 41);
-    font-size: 16px;
-    font-family: 'Cairo', sans-serif;
-  }
-  .range-filter select{
-    border: none;
-    font-family: 'Cairo', sans-serif;
+.Range-box {
+  width: 100%;
+  max-width: 1200px;
+  margin: 30px auto;
+  padding: 24px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  border-radius: 12px;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.05);
+  justify-content: space-between;
+  background-color: #fff;
+  box-sizing: border-box; 
+}
 
 
-  }
-  .range-filter select {
-    width: 100%;
-    max-width: 80px;
-    font-family: 'Cairo', sans-serif;
+.range-filter {
+  flex: 1 1 100px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  min-width: 150px;
+}
 
-  }
- 
-  .input-pair {
-    display: flex;
-    align-items: center;
-    gap: 8px;
+.range-filter p {
+  margin: 0;
+  font-weight: 600;
+  font-size: 15px;
+  color: #212529;
+}
+
+.input-pair {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.input-pair input {
+  padding: 10px;
+  border: 1px solid rgba(0, 0, 0, 0.25);
+  border-radius: 8px;
+  background-color: #fff;
+  font-size: 14px;
+  width: 100px;            
+  max-width: 100px;
+}
+
+.range-filter select {
+  padding: 10px;
+  border-radius: 8px;
+  border: 1px solid rgba(0, 0, 0, 0.25);
+  background-color: #fff;
+  color: #000;
+  font-size: 14px;
+  width: 100%;           
+  max-width: 200px;
+}
 
 
-  }
-  
-  .input-pair input {
-    flex: 1;
-    border: 1px solid rgba(0, 0, 0, 0.3) !important;
-    border-radius: 8px !important;
-    background-color: transparent !important;
-    font-family: 'Cairo', sans-serif;
+.range-filter select option {
+  background-color: #fff;
+  color: #000;
+}
 
-  }
-  
-  input[type="number"],
-  select {
-    padding: 10px;
-    border: 1px solid #ccc;
-    border: 1px solid rgba(0, 0, 0, 0.3);
+.apply-button {
+  align-self: flex-end;
+}
 
-    border-radius: 8px;
-    font-size: 1rem;
-    width: 100%;
-    font-family: 'Cairo', sans-serif;
+.apply-button button {
+  padding: 12px 24px;
+  background-color: #400c5f;
+  color: #fff;
+  font-weight: bold;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+  width: 100%;
+  max-width: 180px;
+}
 
-  }
-  
-  input[type="range"] {
-    width: 100%;
-    accent-color: #003366;
-    font-family: 'Cairo', sans-serif;
-
-  }
-  
-  .apply-button {
-    /* align-self: flex-end; */
-    align-items: center;
-    /* justify-content: flex-end; */
-    font-family: 'Cairo', sans-serif;
-
-  }
-  
-  .apply-button button {
-    max-width: 150px;
-    width: 100%;
-    padding: 12px 24px;
-    background-color:  rgb(64, 12, 95);
-    color: #fff;
-    border: none;
-    border-radius: 8px;
-    font-weight: bold;
-    cursor: pointer;
-    transition: background 0.3s ease;
-    font-family: 'Cairo', sans-serif;
-
-  }
-  
-  .apply-button button:hover {
-    background-color: #0055a5;
-  }
-  input[type="range"] {
-    width: 100%;
-    accent-color: #400c5f; 
-  }
+.apply-button button:hover {
+  background-color: #5e197e;
+}
 
   @media (max-width: 768px) {
     .Rent-Bar-box {

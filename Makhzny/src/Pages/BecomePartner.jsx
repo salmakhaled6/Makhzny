@@ -5,7 +5,7 @@ function BecomePartner() {
   return (
     <div className="become-partner-container">
    <div className="become-partner-bar">
-  <div className="container become-partner-box">
+  <div className=" become-partner-box">
 
           <h2>
             Interested in becoming a partner with <strong>Makhzny.</strong>

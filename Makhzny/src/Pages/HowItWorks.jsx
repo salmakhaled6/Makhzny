@@ -16,7 +16,7 @@ function HowItWorks() {
           <h2>How It Works ?</h2>
           <p>
             Utilizing our state-of-the-art storage facilities is a
-            straightforward process at Makhzny. Follow the simple steps to make
+            straightforward process at <span> Makhzny.</span>  Follow the simple steps to make
             the most of your storage experience.
           </p>
         </div>

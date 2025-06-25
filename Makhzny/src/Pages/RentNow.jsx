@@ -16,10 +16,10 @@ function RentNow() {
     async function fetchBranches() {
       try {
         const data = await getBranches();
-        console.log("Fetched:", data);
+        console.log("Fetched success:", data);
         setBranches(Array.isArray(data) ? data : []);
       } catch (err) {
-        console.error("Failed to fetch branches", err);
+        console.error("Failed to fetch ", err);
       }
     }
 
@@ -44,7 +44,7 @@ function RentNow() {
       };
 
       const data = await getBranches(filters);
-      console.log("Fetched on apply:", data);
+      console.log("Fetched:", data);
 
       const locationFiltered = selectedBranch
         ? (Array.isArray(data) ? data : []).filter(
@@ -56,7 +56,7 @@ function RentNow() {
 
       setBranches(locationFiltered);
     } catch (err) {
-      console.error("Failed to fetch filtered branches:", err);
+      console.error("Failed to fetch :", err);
     }
   };
 
@@ -74,7 +74,6 @@ function RentNow() {
       </div>
 
       <div className="Range-box">
-        <div></div>
         <div className="range-filter">
           <p>Price Range</p>
           <div className="input-pair">

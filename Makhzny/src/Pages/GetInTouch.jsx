@@ -5,7 +5,7 @@ function GetInTouch() {
   return (
     <div className="get-in-touch-container">
       <div className="getinTouch-bar">
-        <div className="container getinTouch-box">
+        <div className="getinTouch-box">
           <h2>Get in touch!</h2>
           <p>
             Ready to declutter your life? Contact us today to discuss your storage needs.
@@ -62,7 +62,7 @@ function GetInTouch() {
         </div>
 
         <div className="form-row">
-          {/* <label></label> */}
+          <label>Submit</label>
           <button type="submit">Submit</button>
         </div>
       </form>

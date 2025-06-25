@@ -16,38 +16,42 @@ gap: 40px;
 }
 
 .HowitWorks-Bar{
-  background-color: #f6ebf9; 
-  margin-top: 0;
-
-  margin-top: 0;
-width: 100%;  
-box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-font-family: 'Cairo', sans-serif;
+  background-color: #f6ebf9;
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  /* padding: 40px 0; */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  font-family: 'Cairo', sans-serif;
 }
 .HowitWorks-Bar-box{
-  height: 133px;
-  padding: 0;
-  text-align: left;
-  font-family: 'Cairo', sans-serif;
+  max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 5%;
+    text-align: left ;
+    font-family: 'Cairo', sans-serif;
 }
 
 .HowitWorks-Bar-box h2 {
-  font-size: 40px;
-color:  rgb(33, 37, 41);
+  font-size: 38px;
+  color: rgb(33, 37, 41);
   margin-bottom: 16px;
-  font-family: 'Cairo', sans-serif;
-font-weight: 500;
-line-height: 56px;
-margin-top: 0;
+  font-weight: 600;
+  line-height: 1.4;
 }
 
 .HowitWorks-Bar-box p {
-  color: rgba(0, 0, 0, 0.5);
-  font-family: 'Cairo', sans-serif;
+  font-size: 16px !important;
+  font-weight: 500;
+  line-height: 1.7;
+  color: rgba(0, 0, 0, 0.6);
+}
+.HowitWorks-Bar-box span{
+  font-size: 20px !important;
 
-font-size:   16px;
-  font-weight :500;
-  line-height :27.2px
+  color: #D16800;
+  line-height: 40px;
+
 }
 
 

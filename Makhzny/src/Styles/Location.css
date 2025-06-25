@@ -123,17 +123,7 @@ width: 100%;
   }
   
   
-  @media (max-width: 768px) {
-    .location-card {
-      width: 45%;
-    }
-  }
   
-  @media (max-width: 480px) {
-    .location-card {
-      width: 100%;
-    }
-  }
   .location-card {
     position: relative;
     overflow: hidden;
@@ -191,3 +181,27 @@ width: 100%;
   align-items: flex-start;
 }
 
+@media (max-width: 768px) {
+  .row {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(220px, 1fr));
+    gap: 20px;
+    justify-items: center;
+  }
+
+  .location-card {
+    width: 100%;
+    max-width: none;
+  }
+}
+
+
+@media (max-width: 480px) {
+  .row{
+    grid-template-columns: repeat(1, minmax(220px, 1fr));
+
+  }
+  .location-card {
+    width: 100%;
+  }
+}
