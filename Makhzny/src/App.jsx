@@ -61,7 +61,7 @@ function App() {
     </Routes>
     {/* <TransferOrder /> */}
 
-     {/* <Footer /> */}
+     <Footer />
     </>
   )
 }

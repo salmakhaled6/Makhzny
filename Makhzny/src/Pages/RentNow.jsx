@@ -72,7 +72,7 @@ function RentNow() {
           </p>
         </div>
       </div>
-
+      <div className="range-container">
       <div className="Range-box">
         <div className="range-filter">
           <p>Price Range</p>
@@ -115,19 +115,26 @@ function RentNow() {
         <div className="range-filter">
           <p>Location</p>
           <select onChange={handleSelect}>
-            <option value="">All</option>
-            {branches.map((branch) => (
-              <option key={branch.id} value={branch.name}>
-                {branch.name}
-              </option>
-            ))}
-          </select>
+  <option value="">All</option>
+  {(() => {
+    console.log("Branches for select:", branches);
+    return branches.map((branch) => (
+      <option key={branch.id} value={branch.name}>
+        {branch.name}
+      </option>
+    ));
+  })()}
+</select>
+
         </div>
 
         <div className="range-filter apply-button">
           <button onClick={handleApplyFilters}>Apply</button>
         </div>
       </div>
+      </div>
+
+     
 
       <RentCard cards={filteredBranches} />
     </div>

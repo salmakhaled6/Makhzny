@@ -15,6 +15,20 @@
     font-family: 'Cairo', sans-serif;
 
   }
+  a {
+    text-decoration: none;
+    color: inherit;
+    width: 100%;
+  }
+  
+  a:visited {
+    color: inherit;
+  }
+  
+  a:hover {
+    color: inherit;
+  }
+  
   
   .location-section > p {
     font-size: 18px;
@@ -59,6 +73,11 @@
     border-radius: 8px;
     margin-bottom: 15px;
   }
+  .green-location {
+    color: #25D366;
+    font-weight: 600;
+  }
+  
   
   .location-card p {
     font-size: 22px;
@@ -86,14 +105,19 @@
   }
   
   .hover-location-list li {
-    display: flex;
-    align-items: center;
     font-size: 16px;
-    font-weight: bold;
     margin-bottom: 8px;
     color: #000000 !important;
-
   }
+  
+  .hover-location-list li:not(.soon-location) {
+    font-weight: bold;
+  }
+  
+  .soon-location {
+    font-weight: normal;
+  }
+  
   
   .hover-location-list .icon {
     margin-right: 8px;
@@ -159,6 +183,10 @@ width: 100%;
     border-radius: 12px;
     text-align: center;
     height: 100%;
+    box-sizing: border-box;
+    width: 100%;
+    max-width: 100%;
+    padding: 20px;
   }
   
   .location-card:hover .card-hover-content {
@@ -182,18 +210,23 @@ width: 100%;
 }
 
 @media (max-width: 768px) {
-  .row {
+  .location-grid {
     display: grid;
-    grid-template-columns: repeat(2, minmax(220px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
     gap: 20px;
     justify-items: center;
   }
 
+  .row {
+    display: contents; 
+  }
+
   .location-card {
-    width: 100%;
-    max-width: none;
+    max-width: 100%;
   }
 }
+
+
 
 
 @media (max-width: 480px) {

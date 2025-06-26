@@ -150,5 +150,147 @@ gap: 40px;
 
   }
 
+  @media (max-width: 992px) {
+    
+  
+    .howit-text h3 {
+      font-size: 22px;
+      padding-left: 0;
+    }
+  
+    .howit-text h3::before {
+      display: none;
+    }
+  
+    .howit-text p {
+      font-size: 16px;
+      line-height: 1.6;
+      max-width: 100%;
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .howit-step {
+      max-height: 200px;
+      padding: 12px;
+    }
+  
+    .howit-step.image-right img,
+    .howit-step.image-close img {
+      width: 180px;
+      height: 170px;
+    }
+  
+    .howit-text {
+      padding: 10px;
+    }
+  
+    .howit-text h3 {
+      font-size: 20px;
+      padding-left: 14px;
+    }
+  
+    .howit-text h3::before {
+      width: 8px;
+      height: 8px;
+    }
+  
+    .howit-text p {
+      font-size: 15px;
+      line-height: 1.5;
+      max-width: 100%;
+    }
+  
+    .HowitWorks-Bar-box h2 {
+      font-size: 26px;
+    }
+  
+    .HowitWorks-Bar-box p,
+    .HowitWorks-Bar-box span {
+      font-size: 14px !important;
+    }
+  
+    .container {
+      padding: 0 10px;
+      gap: 28px;
+    }
+  
+    .howit-works-content {
+      padding: 24px 0;
+      gap: 28px;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .howit-step {
+      max-height: 180px;
+    }
+  
+    .howit-step.image-right img,
+    .howit-step.image-close img {
+      width: 140px;
+      height: 140px;
+    }
+  
+    .howit-text h3 {
+      font-size: 18px;
+      padding-left: 10px;
+    }
+  
+    .howit-text p {
+      font-size: 14px;
+    }
+  
+    .HowitWorks-Bar-box h2 {
+      font-size: 22px;
+    }
+  
+    .HowitWorks-Bar-box p,
+    .HowitWorks-Bar-box span {
+      font-size: 13px !important;
+    }
+  
+    .container {
+      gap: 20px;
+    }
+  
+    .howit-works-content {
+      gap: 20px;
+    }
+  }
+  @media (max-width: 450px) {
+    .howit-step {
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      max-height: none;
+      padding: 16px;
+    }
+  
+    .howit-step.image-right img,
+    .howit-step.image-close img {
+      width: 100%;
+      height: auto;
+      max-width: 90%;
+      margin-bottom: 16px;
+    }
+  
+    .howit-text {
+      padding: 0 10px;
+    }
+  
+    .howit-text h3 {
+      font-size: 16px;
+      padding-left: 0;
+    }
+  
+    .howit-text h3::before {
+      display: none;
+    }
+  
+    .howit-text p {
+      font-size: 14px;
+    }
+  }
   
   

@@ -16,24 +16,22 @@ function GetInTouch() {
 
       <div className="container contact-info">
         <div className="info-box">
-          <img src="" alt="Phone Icon" />
+          📞
           <div>
-            <p className="info-title">Phone Number</p>
+            <p className="info-title">  Phone Number</p>
             <p className="info-text">+966545933222</p>
           </div>
         </div>
 
         <div className="info-box">
-          <img src="" alt="Location Icon" />
-          <div>
+        📍          <div>
             <p className="info-title">Address</p>
             <p className="info-text">Dammam, Alkhaldyiah Aljanoubiyah, Salman Alfarsi St</p>
           </div>
         </div>
 
         <div className="info-box">
-          <img src="" alt="Email Icon" />
-          <div>
+        📧          <div>
             <p className="info-title">Email</p>
             <p className="info-text">hello@makhzny.com</p>
           </div>
@@ -47,7 +45,7 @@ function GetInTouch() {
         </div>
 
         <div className="form-row">
-          <label htmlFor="phone">Phone Number</label>
+          <label htmlFor="phone"> Phone Number</label>
           <input id="phone" type="text" />
         </div>
 

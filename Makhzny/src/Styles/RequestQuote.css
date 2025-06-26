@@ -305,10 +305,17 @@
     display: none;
   }
   .request-quote-container {
-    padding: 1rem;
     padding-bottom: 20px;
   }
 
+  .step-content{
+    padding: 1rem;
+
+  }
+  .steps-indicator{
+    padding: 1rem;
+
+  }
   .step-circle {
     width: 60px;
     height: 60px;

@@ -11,7 +11,7 @@ function Carousl() {
           <p className="p1">​The First Self Storage Company in 🇸🇦</p>
           <p className="p2">Space for Whatever You Need 🚀</p>
           <div className="Carousl-btns">
-            <button>احصل علي تصيرة</button>
+            <button>احصل علي تسعيرة</button>
             <button>خذلك لفه في مخزني</button>
           </div>
         </div>

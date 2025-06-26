@@ -1,3 +1,7 @@
+* {
+  box-sizing: border-box;
+}
+
 .form-container {
   font-family: 'Cairo', sans-serif;
   margin: auto;
@@ -174,16 +178,12 @@
 
 
 @media (max-width: 1024px) {
-  .transfer-request-box {
-    padding: 30px 10%;
+  .transfer-hero-box {
+    padding: 0 8%;
   }
 
-  .transfer-request-box h2 {
-    font-size: 30px;
-  }
-
-  .form-img-box {
-    flex-direction: row;
+  .transfer-hero-box h2 {
+    font-size: 32px;
   }
 
   .form-heading {
@@ -192,21 +192,22 @@
 }
 
 @media (max-width: 768px) {
-  .transfer-request-box {
-    display: none;
+  .transfer-hero-box {
+    padding: 0 5%;
   }
 
-  .form-container {
-    padding: 0 16px;
+  .transfer-hero-box h2 {
+    font-size: 28px;
   }
 
   .form-section {
-    padding: 0;
+    padding: 24px 16px;
   }
 
   .form-img-box {
     flex-direction: column;
     align-items: flex-start;
+    gap: 6px;
   }
 
   .form-heading {
@@ -217,9 +218,25 @@
     font-size: 14px;
     padding: 10px;
   }
+
+  .transfer-form {
+    gap: 16px;
+  }
 }
 
 @media (max-width: 480px) {
+  .form-container {
+    padding: 0 12px;
+  }
+
+  .transfer-hero-box h2 {
+    font-size: 24px;
+  }
+
+  .transfer-hero-box p {
+    font-size: 14px;
+  }
+
   .form-heading {
     font-size: 15px;
   }
@@ -227,5 +244,17 @@
   .submit-btn {
     font-size: 13px;
     padding: 8px;
+  }
+
+  .transfer-form label {
+    font-size: 13px;
+  }
+
+  .checkbox-group p {
+    font-size: 13px;
+  }
+
+  .form-img-box {
+    gap: 8px;
   }
 }

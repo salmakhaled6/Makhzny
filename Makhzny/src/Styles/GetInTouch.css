@@ -10,7 +10,8 @@
    .getinTouch-bar{
     background-color: #f6ebf9;
     display: flex;
-    justify-content: center;
+    justify-content: flex-start !important;
+    /* align-items: flex-start; */
     width: 100%;
     /* padding: 40px 0; */
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
@@ -19,6 +20,7 @@
 
    .getinTouch-box{
     max-width: 1200px;
+    width: 100%;
     margin: 0 auto;
     padding: 0 5%;
     text-align: left ;
@@ -52,7 +54,7 @@
     width: 100%;
     display: flex;
     align-items: center;
-    gap: 1rem;
+    gap: 1.5rem !important;
     margin-top: 20px;
   }
   
@@ -61,10 +63,11 @@
     font-family: 'Cairo', sans-serif;
     font-size: 20px;
 
+
   }
   
   .info-text {
-    margin-top: 4px;
+    margin-top: 10px;
     font-size: 18px ;
     font-family: 'Cairo', sans-serif;
 
@@ -123,4 +126,84 @@
     padding: 0 20px;
     box-sizing: border-box;
   }
-  
+@media (max-width: 992px) {
+  .getinTouch-box h2 {
+    font-size: 30px;
+  }
+
+  .getinTouch-box p {
+    font-size: 16px;
+  }
+
+  .info-title {
+    font-size: 18px;
+  }
+
+  .info-text {
+    font-size: 16px;
+  }
+
+  .form-row label {
+    font-size: 15px;
+  }
+
+  .form-row input {
+    font-size: 15px;
+  }
+}
+
+@media (max-width: 768px) {
+  .form-row {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .form-row label,
+  .form-row input,
+  .form-row button {
+    width: 100%;
+  }
+
+  .form-row input {
+    flex: none;
+    font-size: 15px;
+  }
+
+  .form-row button {
+    width: 100%;
+    max-width: none;
+  }
+
+
+}
+
+@media (max-width: 480px) {
+  .getinTouch-box h2 {
+    font-size: 24px;
+  }
+
+  .getinTouch-box p {
+    font-size: 14px;
+  }
+
+  .info-title {
+    font-size: 16px;
+  }
+
+  .info-text {
+    font-size: 14px;
+  }
+
+  .form-row label {
+    font-size: 14px;
+  }
+
+  .form-row input {
+    font-size: 14px;
+  }
+
+  .form-row button {
+    font-size: 14px;
+    padding: 0.6rem 1rem;
+  }
+}

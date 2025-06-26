@@ -91,7 +91,7 @@
   line-height: 18px;
 }
 
-@media (max-width: 992px) {
+@media (max-width: 1020px) {
   .info-images {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));

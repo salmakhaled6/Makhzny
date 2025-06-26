@@ -16,8 +16,8 @@
 }
 
 .carousl-container > div {
-  flex: 1 1 400px;
-  max-width: 600px;
+  flex: 0 1 auto; 
+  max-width: 100%; 
 }
 
 .carousl-container h2 {
@@ -90,7 +90,7 @@
     flex-direction: column;
     text-align: center;
     padding: 30px 15px;
-  }
+}
 
   .Carousl-btns {
     justify-content: center;

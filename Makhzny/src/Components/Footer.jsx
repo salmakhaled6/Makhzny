@@ -20,8 +20,9 @@ function Footer() {
       </div>
 
       <div className="footer-column links-column">
-        <ul className="footer-links">
-          <p>Quick Links</p>
+      <ul className="footer-links">
+  <li className="section-title">Quick Links</li>
+
           <li>Sizes & Pricing</li>
           <li>FAQ</li>
           <li>Privacy Policy</li>
@@ -36,7 +37,7 @@ function Footer() {
 
       <div className="footer-column contact-column">
         <ul className="footer-contact">
-          <p>Contact Us</p>
+        <li className="section-title">Contact Us</li>
           <li>
             <img src={vector1} alt="location" />
             Riyadh, Dammam and Jeddah
@@ -49,14 +50,15 @@ function Footer() {
             <img src={vector3} alt="phone" />
             +966 9200 24021
           </li>
-        </ul>
-        <div className="footer-social">
+          <div className="footer-social">
           {[facebook, linkedin, x, tiktok, instagram].map((icon, i) => (
             <div className="social-icon" key={i}>
               <img src={icon} alt="social" />
             </div>
           ))}
         </div>
+        </ul>
+   
       </div>
     </footer>
   );
