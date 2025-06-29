@@ -1,6 +1,8 @@
 import React, { useRef, useEffect, useState } from 'react';
 import { useLocation } from 'react-router-dom';
 import { useLang } from "../contexts/LanguageContext";
+import { Link } from 'react-router-dom';
+
 
 import axios from 'axios';
 import '../Styles/Signature.css';
@@ -128,9 +130,13 @@ function Signature() {
         checked={isChecked}
         onChange={(e) => setIsChecked(e.target.checked)}
       />
-      <span>
-        {t("acceptTerms")} <strong>Makhzny</strong>
-      </span>
+   <Link to="/termsConditions">
+  <span style={{ textDecoration: 'underline' }}>
+    {t("acceptTerms")} <strong >Makhzny</strong>
+  </span>
+</Link>
+
+
     </label>
   
     <canvas
