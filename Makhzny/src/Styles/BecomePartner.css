@@ -16,7 +16,7 @@
   max-width: 1200px;
   width: 100%;
   margin: 0 auto;
-  padding: 0 5%;
+  padding: 0 2%;
   text-align: left ;
 }
 
@@ -34,7 +34,15 @@
   font-weight: 700;
   line-height: 1.4;
 }
+[dir="rtl"] .become-partner-box h2,
+[dir="rtl"] .become-partner-box p {
+  text-align: right;
+}
 
+[dir="ltr"] .become-partner-box h2,
+[dir="ltr"] .become-partner-box p {
+  text-align: left;
+}
 .become-partner-box p {
   color: #410B5F;
   font-size: 15px;
@@ -86,6 +94,8 @@
 }
 
 .partner-form button {
+  max-width: 100px;
+  width: 100%;
   padding: 12px;
   background-color: #410B5F;
   color: #fff;
@@ -95,6 +105,8 @@
   font-weight: 600;
   cursor: pointer;
   transition: background-color 0.3s ease;
+  font-family: 'Cairo', sans-serif;
+
 }
 
 .partner-form button:hover {

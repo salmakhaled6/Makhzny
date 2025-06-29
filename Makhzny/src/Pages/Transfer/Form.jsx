@@ -2,10 +2,14 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import back from "../../assets/back.png";
 import "../../Styles/Form.css";
+import { useLang } from '../../contexts/LanguageContext'; 
+
 import { useNavigate } from "react-router-dom";
 
 function Form() {
   const navigate = useNavigate();
+  const { t } = useLang();
+
 
   const [formData, setFormData] = useState({
     partner_id: 4202,
@@ -48,23 +52,24 @@ function Form() {
         "https://makhzny.odoo.com/api/transport_requests",
         formData
       );
-      alert("Transfer request submitted successfully!");
+      setShowSuccessPopup(true);
       console.log(res.data);
     } catch (err) {
       console.error(err);
       alert("Failed to submit transfer request");
     }
   };
+  const today = new Date().toISOString().split("T")[0];
+  const [showSuccessPopup, setShowSuccessPopup] = useState(false);
+
+
 
   return (
     <div className="form-container">
       <div className="transfer-hero">
         <div className="transfer-hero-box">
-          <h2>Transfer request</h2>
-          <p>
-            "We ensure safe and fast transfer of your belongings. Professional
-            moving service – Punctual & fully insured"
-          </p>
+          <h2>{t("transferRequest")}</h2>
+<p>{t("transferDescription")}</p>
         </div>
       </div>
 
@@ -77,18 +82,18 @@ function Form() {
             onClick={() => navigate(-1)}
             style={{ cursor: "pointer" }}
           />
-          <p className="form-heading">Submit a transfer request</p>
+<p className="form-heading">{t("submitTransfer")}</p>
         </div>
 
         <form className="transfer-form" onSubmit={handleSubmit}>
-          <label>Item Types</label>
+        <label>{t("itemTypes")}</label>
           <select
             name="item_type_id"
             value={formData.item_type_id}
             onChange={handleChange}
             required
           >
-            <option value="">Select Item Type</option>
+<option value="">{t("selectItemType")}</option>
             {itemTypes &&
               itemTypes.map((type) => (
                 <option key={type.id} value={type.id}>
@@ -97,14 +102,14 @@ function Form() {
               ))}
           </select>
 
-          <label>Items Size</label>
+          <label>{t("itemSizes")}</label>
           <select
             name="item_size_id"
             value={formData.item_size_id}
             onChange={handleChange}
             required
           >
-            <option value="">Select Item Size</option>
+<option value="">{t("selectItemSize")}</option>
             {itemSizes &&
               itemSizes.map((size) => (
                 <option key={size.id} value={size.id}>
@@ -113,18 +118,20 @@ function Form() {
               ))}
           </select>
 
-          <label>Shipping Date</label>
+          <label>{t("shippingDate")}</label>
           <input
-            type="date"
-            name="date"
-            value={formData.date}
-            onChange={handleChange}
-            required
-          />
+  type="date"
+  name="date"
+  value={formData.date}
+  onChange={handleChange}
+  min={today} 
+  required
+/>
 
-          <label>Shipping Address</label>
+
+<label>{t("shippingAddress")}</label>
           <div className="address-inputs">
-            <p>From</p>
+          <p>{t("from")}</p>
             <input
               type="text"
               name="detailed_address_from"
@@ -132,14 +139,14 @@ function Form() {
               onChange={handleChange}
               required
             />
-            <p>To</p>
+<p>{t("to")}</p>
             <select
               name="city_id"
               value={formData.city_id}
               onChange={handleChange}
               required
             >
-              <option value="">Transfer to</option>
+<option value="">{t("transferTo")}</option>
               {cities &&
                 cities.map((city) => (
                   <option key={city.id} value={city.id}>
@@ -149,7 +156,7 @@ function Form() {
             </select>
           </div>
 
-          <label>Additional Notes</label>
+          <label>{t("additionalNotes")}</label>
           <input
             type="text"
             name="notes"
@@ -164,14 +171,27 @@ function Form() {
               checked={formData.request_unpacking}
               onChange={handleChange}
             />
-            <p>Request Items Disassembly Service</p>
+<p>{t("requestDisassembly")}</p>
           </div>
 
-          <button className="submit-btn" type="submit">
-            Send Request
-          </button>
+         
+<button className="submit-btn" type="submit">
+  {t("sendRequest")}
+</button>
+          
         </form>
       </div>
+      {showSuccessPopup && (
+  <div className="success-popup-overlay">
+    <div className="success-popup-box">
+      <div className="checkmark">&#10004;</div>
+      <h3>{t("requestSubmitted")}</h3>
+      <p>{t("requestConfirmation")}</p>
+      <button onClick={() => setShowSuccessPopup(false)}>{t("close")}</button>
+    </div>
+  </div>
+)}
+
     </div>
   );
 }

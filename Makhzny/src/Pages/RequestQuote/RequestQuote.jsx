@@ -1,36 +1,79 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "../../Styles/RequestQuote.css";
+import { useLang } from '../../contexts/LanguageContext'; 
+
 
 function RequestQuote() {
   const [currentStep, setCurrentStep] = useState(1);
   const [selectedBranch, setSelectedBranch] = useState("");
   const [selectedSize, setSelectedSize] = useState("");
   const [selectedDuration, setSelectedDuration] = useState("");
-
+  const [price, setPrice] = useState(0);
   const [quotation, setQuotation] = useState([]);
   const [loadingQuote, setLoadingQuote] = useState(false);
   const [showPersonalInfoPopup, setShowPersonalInfoPopup] = useState(false);
   const [userInfo, setUserInfo] = useState({ name: "", email: "", phone: "" });
   const [receivingMethod, setReceivingMethod] = useState("");
+  const { t, lang } = useLang();
+
+
+  useEffect(() => {
+    if (selectedBranch) {
+      fetchUnitsForBranch(selectedBranch);
+    }
+  }, [selectedBranch]);
+
+  const BRANCH_MAP = {
+    Riyadh: 3,
+    Dammam: 4,
+    Jeddah: 2,
+  };
+  
+  const fetchUnitsForBranch = async (branch) => {
+    const company_id = BRANCH_MAP[branch];
+    if (!company_id) return;
+  
+    try {
+      const res = await fetch("https://makhzny.odoo.com/get_products_quotation", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ company_id }),
+      });
+  
+      const json = await res.json();
+      setQuotation(json.result?.data || []);
+    } catch (error) {
+      console.error("Failed to fetch units:", error);
+    }
+  };
+  
+  const handleBranchSelect = (branch) => {
+    setSelectedBranch(branch);
+    setCurrentStep(2);
+  };
+  
 
   const handleReceivingOption = (method) => {
     setReceivingMethod(method);
     setShowPersonalInfoPopup(true);
   };
-  const getPriceBasedOnDuration = (duration) => {
-    if (duration === "3 Months") return 2000;
-    if (duration === "1 Month") return 2100;
-    return 0;
-  };
 
   const handleSubmitQuote = async () => {
+    if (!userInfo.name || !userInfo.email || !userInfo.phone) {
+      alert(t("pleaseFillAllFields"));
+      js
+      Copy
+      Edit
+            return;
+    }
+
     try {
       setLoadingQuote(true);
 
       const requestBody = {
         branch: selectedBranch,
         area: parseFloat(selectedSize),
-        price: getPriceBasedOnDuration(selectedDuration),
+        duration: selectedDuration,
         title: "Storage",
         partner_name: userInfo.name,
         partner_email: userInfo.email,
@@ -38,8 +81,8 @@ function RequestQuote() {
         is_email: receivingMethod === "email",
         is_wp: receivingMethod === "whatsapp",
         is_pdf: receivingMethod === "pdf",
+        price,
       };
-
 
       const response = await fetch("https://makhzny.odoo.com/get_quot_pdf", {
         method: "POST",
@@ -50,45 +93,47 @@ function RequestQuote() {
       });
 
       const data = await response.json();
-      console.log(" returned:", data);
-      console.log(" Sent request body:", requestBody);
-      console.log(" PDF URL returned:", data.result);
 
       if (receivingMethod === "pdf") {
         const pdfUrl = data.result;
         if (pdfUrl && pdfUrl.startsWith("http")) {
           window.open(pdfUrl, "_blank");
+          setShowPersonalInfoPopup(false);
+          return;
         } else {
-          alert("Failed to retrieve the PDF.");
+          alert(t("pdfFailed"));
+          return;
         }
-      } else if (
+      }
+
+      if (
         (receivingMethod === "email" || receivingMethod === "whatsapp") &&
         data.result === "Sent"
       ) {
         alert(
           receivingMethod === "email"
-            ? "The quotation has been sent to your email address."
-            : "The quotation has been sent to your WhatsApp."
+            ? t("quoteSentEmail")
+            : t("quoteSentWhatsapp")
         );
-      } else {
-        alert("Something went wrong. Please try again.");
+        
+        setShowPersonalInfoPopup(false);
+        return;
       }
 
-      setShowPersonalInfoPopup(false);
+      alert(t("quoteError"));
     } catch (error) {
       console.error("Failed to send quote:", error);
-      alert("Failed to send quote. Please try again.");
+      alert(t("quoteSendError"));
     } finally {
       setLoadingQuote(false);
     }
   };
 
-  const handleBranchSelect = (branch) => {
-    setSelectedBranch(branch);
-    setCurrentStep(2);
-  };
-  const handleAreaSelect = (area) => {
+ 
+
+  const handleAreaSelect = (area, priceValue) => {
     setSelectedSize(area);
+    setPrice(priceValue);
     setCurrentStep(3);
   };
 
@@ -98,11 +143,12 @@ function RequestQuote() {
   };
 
   const steps = [
-    { number: 1, label: "Choose Branch" },
-    { number: 2, label: "Choose Area" },
-    { number: 3, label: "Rental Duration" },
-    { number: 4, label: "Receiving Method" },
+    { number: 1, label: t("step1") },
+    { number: 2, label: t("step2") },
+    { number: 3, label: t("step3") },
+    { number: 4, label: t("step4") },
   ];
+  
 
   const handlePreviousStep = () => {
     if (currentStep > 1) {
@@ -111,14 +157,12 @@ function RequestQuote() {
   };
 
   return (
-    <div className="request-quote-container">
+<div className="request-quote-container" dir={lang === "ar" ? "rtl" : "ltr"}>
       <div className="request-quote">
         <div className="request-quote-box">
-          <h2>Request a Quote</h2>
-          <p>
-            Are you looking to rent a storage unit, office, or a locker? Please
-            use our form below to get an accurate and instant quote.
-          </p>
+        <h2>{t("requestQuoteTitle")}</h2>
+<p>{t("requestQuoteDescription")}</p>
+
         </div>
       </div>
 
@@ -148,69 +192,50 @@ function RequestQuote() {
 
       {currentStep === 1 && (
         <div className="step-content">
-          <h3>Step 1: Choose a Branch</h3>
-          <button onClick={() => handleBranchSelect("Riyadh")}>
-            Riyadh Branch
-          </button>
-          <button onClick={() => handleBranchSelect("Dammam")}>
-            Dammam Branch
-          </button>
-          <button onClick={() => handleBranchSelect("Jeddah")}>
-            Jeddah Branch
-          </button>
+         <h3>{t("step1")}</h3>
+<button onClick={() => handleBranchSelect("Riyadh")}>{t("riyadhBranch")}</button>
+<button onClick={() => handleBranchSelect("Dammam")}>{t("dammamBranch")}</button>
+<button onClick={() => handleBranchSelect("Jeddah")}>{t("jeddahBranch")}</button>
+
         </div>
       )}
 
       {currentStep === 2 && (
         <div className="step-content">
-          <h3>Step 2: Choose Area</h3>
-          <p>Selected Branch: {selectedBranch}</p>
-
+          <h3>{t("step2")}</h3>
+<p>{t("selectedBranch")}: {selectedBranch}</p>
           <div className="area-buttons-group">
-            <button onClick={() => handleAreaSelect("1")}>1 M</button>
-            <button onClick={() => handleAreaSelect("2")}>2 M</button>
-            <button onClick={() => handleAreaSelect("3")}>3 M</button>
-            <button onClick={() => handleAreaSelect("4")}>4 M</button>
-            <button onClick={() => handleAreaSelect("5")}>5 M</button>
+            {quotation.map((unit, idx) => (
+              <button key={idx} onClick={() => handleAreaSelect(unit.area, unit.price)}>
+                {unit.area} M<sup>2</sup>
+              </button>
+            ))}
           </div>
-
           <div className="step-buttons">
             <button onClick={handlePreviousStep}>Previous</button>
-            {/* <button onClick={() => setCurrentStep(3)}>Next</button> */}
           </div>
         </div>
       )}
 
       {currentStep === 3 && (
         <div className="step-content">
-          <h3>Step 3: Rental Duration</h3>
-
-          <button onClick={() => handleDurationSelect("1 Month")}>
-            Monthly (0% Discount)
-          </button>
-          <button onClick={() => handleDurationSelect("3 Months")}>
-            3 Months (5% Discount)
-          </button>
-
+          <h3>{t("step3")}</h3>
+<button onClick={() => handleDurationSelect("1 Month")}>{t("monthlyDiscount")}</button>
+<button onClick={() => handleDurationSelect("3 Months")}>{t("threeMonthDiscount")}</button>
+<button onClick={() => handleDurationSelect("6 Months")}>{t("sixMonthDiscount")}</button>
+<button onClick={() => handleDurationSelect("Annual")}>{t("annualDiscount")}</button>
           <div className="step-buttons">
             <button onClick={handlePreviousStep}>Previous</button>
-            {/* <button onClick={() => setCurrentStep(4)}>Next</button> */}
           </div>
         </div>
       )}
 
       {currentStep === 4 && (
         <div className="step-content">
-          <h3>Step 4: Receiving Method</h3>
-          <button onClick={() => handleReceivingOption("email")}>
-            Send via Email
-          </button>
-          <button onClick={() => handleReceivingOption("whatsapp")}>
-            Send via WhatsApp
-          </button>
-          <button onClick={() => handleReceivingOption("pdf")}>
-            Download PDF
-          </button>
+     <h3>{t("step4")}</h3>
+<button onClick={() => handleReceivingOption("email")}>{t("sendViaEmail")}</button>
+<button onClick={() => handleReceivingOption("whatsapp")}>{t("sendViaWhatsapp")}</button>
+<button onClick={() => handleReceivingOption("pdf")}>{t("downloadPDF")}</button>
 
           <div className="step-buttons">
             <button onClick={handlePreviousStep}>Previous</button>
@@ -221,40 +246,30 @@ function RequestQuote() {
       {showPersonalInfoPopup && (
         <div className="popup-overlay-quote">
           <div className="popup-box-quote">
-            <h3>Enter Your Personal Info</h3>
-
+          <h3>{t("enterPersonalInfo")}</h3>
             <div className="input-fields-wrapper">
               <input
                 type="text"
-                placeholder="Full Name"
+                placeholder={t("fullNamePlaceholder")}
                 value={userInfo.name}
-                onChange={(e) =>
-                  setUserInfo({ ...userInfo, name: e.target.value })
-                }
+                onChange={(e) => setUserInfo({ ...userInfo, name: e.target.value })}
               />
               <input
                 type="email"
-                placeholder="Email Address"
+                placeholder={t("emailPlaceholder")}
                 value={userInfo.email}
-                onChange={(e) =>
-                  setUserInfo({ ...userInfo, email: e.target.value })
-                }
+                onChange={(e) => setUserInfo({ ...userInfo, email: e.target.value })}
               />
               <input
                 type="tel"
-                placeholder="Phone Number"
+                placeholder={t("phonePlaceholder")}
                 value={userInfo.phone}
-                onChange={(e) =>
-                  setUserInfo({ ...userInfo, phone: e.target.value })
-                }
+                onChange={(e) => setUserInfo({ ...userInfo, phone: e.target.value })}
               />
             </div>
-
             <div className="popup-actions">
-              <button onClick={() => setShowPersonalInfoPopup(false)}>
-                Cancel
-              </button>
-              <button onClick={handleSubmitQuote}>Submit</button>
+            <button onClick={() => setShowPersonalInfoPopup(false)}>{t("cancel")}</button>
+            <button onClick={handleSubmitQuote}>{t("submit")}</button>
             </div>
           </div>
         </div>

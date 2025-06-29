@@ -9,6 +9,7 @@
 }
 .faq-Bar-box{
   max-width: 1200px;
+  width: 100%;
     margin: 0 auto;
     padding: 0 5%;
     text-align: left ;
@@ -34,6 +35,16 @@
     line-height: 1.7;
     color: rgba(0, 0, 0, 0.6);
   }
+  [dir="rtl"] .faq-Bar-box h2,
+[dir="rtl"] .faq-Bar-box p {
+  text-align: right;
+}
+
+[dir="ltr"] .faq-Bar-box h2,
+[dir="ltr"] .faq-Bar-box p {
+  text-align: left;
+}
+
   
   .faq-item {
     /* border: 1px solid #ddd; */

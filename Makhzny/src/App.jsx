@@ -9,6 +9,7 @@ import HomePage from './Pages/HomePage'
 import { Routes, Route } from 'react-router-dom';
 import RentNow from './Pages/RentNow'
 
+
 import Signature from './Pages/Signature'
 import TransferRequest from './Pages/Transfer/TransferRequest'
 import Form from './Pages/Transfer/Form'
@@ -19,6 +20,8 @@ import HowItWorks from './Pages/HowItWorks'
 import FAQ from './Pages/FAQ'
 import BecomePartner from './Pages/BecomePartner'
 import GetInTouch from './Pages/GetInTouch'
+import TermsConditions from './Pages/TermsConditions'
+import PrivacyPolicy from './Pages/PrivacyPolicy'
 
 function App() {
 
@@ -45,6 +48,10 @@ function App() {
       <Route path='/FAQ'element={<FAQ />}/>
       <Route path='/BecomePartner'element={<BecomePartner />}/>
       <Route path='/GetinTouch'element={<GetInTouch />}/>
+      <Route path='/TermsConditions'element={<TermsConditions />}/>
+      <Route path='/PrivacyPolicy'element={<PrivacyPolicy />}/>
+
+
 
       
 

@@ -14,9 +14,10 @@
 
 .transfer-hero-box {
   max-width: 1200px;
+  /* width: 100%; */
   margin: 0 auto;
 
-  /* margin: 0 auto; */
+  margin: 0 auto;
   padding: 0 5%;
 
   /* padding: 30px 18%; */
@@ -35,6 +36,19 @@
   font-weight: 500;
   line-height: 1.6;
   color: rgba(0, 0, 0, 0.5);
+}
+
+.transfer-hero-box {
+  text-align: start;
+}
+
+[dir="rtl"] .transfer-hero-box,
+[dir="rtl"] .transfer-content {
+  text-align: right;
+}
+
+[dir="rtl"] .transfer-content img {
+  margin-left: 0;
 }
 
 .transfer-content {
@@ -70,6 +84,8 @@
   transition: background-color 0.3s ease;
   width: 100%;
   max-width: 420px;
+  font-family: 'Cairo', sans-serif;
+
 }
 
 .transfer-btn:hover {
@@ -99,9 +115,9 @@
 }
 
 @media (max-width: 768px) {
-  .transfer-hero-box {
+  /* .transfer-hero-box {
     display: none; 
-  }
+  } */
 
   .transfer-content img {
     max-width: 160px;

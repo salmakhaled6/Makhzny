@@ -123,6 +123,11 @@
   width: 24px;
   height: 24px;
 }
+.nav-links a.active {
+  color: #410B5F;
+  font-weight: bold;
+}
+
 @media (max-width: 950px){
   .footer{
     grid-template-columns: repeat(1, minmax(280px, 1fr));

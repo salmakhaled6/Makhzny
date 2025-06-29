@@ -8,15 +8,15 @@ width: 50vw;
     box-shadow: 0 0 15px rgba(0,0,0,0.1);
     background-color: #fff;
     text-align: center;
-    font-family: 'Poppins', sans-serif;
+    font-family: 'Cairo', sans-serif;
     border-radius: 25px;
 
   }
   
  .heading{
     margin-bottom: 10px;
-    font-family: 'Poppins', sans-serif;
-font-size: 35px;
+    font-family: 'Cairo', sans-serif;
+    font-size: 35px !important;
 font-weight: 500;   
 line-height: 49px;
 color: #410B5F;
@@ -24,14 +24,14 @@ text-align: center;
   }
   
   .login-container input {
-    font-family: 'Poppins', sans-serif;
+    font-family: 'Cairo', sans-serif;
 
     width: 100%;
     padding: 0.75rem;
     margin: 0.5rem 0;
     border-radius: 15px;
     border: 1px solid #ccc;
-    font-size: 1rem;
+    font-size: 1rem !important;
     background-color: #EEE;
   }
   
@@ -42,6 +42,8 @@ text-align: center;
     margin-bottom: 0.25rem;
     font-size: 0.95rem;
     color: #410B5F;
+    font-family: 'Cairo', sans-serif;
+
   }
   .btns{
     display: flex;
@@ -58,6 +60,8 @@ text-align: center;
     font-weight: bold;
     cursor: pointer;
     transition: background-color 0.3s ease;
+    font-family: 'Cairo', sans-serif;
+
   }
   .btn2{
     color: #410B5F;
@@ -67,6 +71,8 @@ text-align: center;
     border: none;
     background-color: transparent;
     margin-bottom: 10px;
+    font-family: 'Cairo', sans-serif;
+
   
   }
   .btn2:hover{
@@ -79,6 +85,9 @@ text-decoration: underline;
     font-size: 2.1875rem;
     text-align: center !important;
     font-family:  "Cairo", "Odoo Unicode Support Noto", sans-serif;
+    padding-bottom: 0;
+    margin-bottom: 0;
+    margin-top: 10px;
 }
   
 p{
@@ -86,12 +95,29 @@ p{
     font-weight: 400;
     color: #410B5F;
     line-height: 15.4px;
+    font-family: 'Cairo', sans-serif;
+
 }
 input{
     border-radius: 25px !important;
     background-color: #F4F4F4 !important;
     border: none !important;
     font-size: 16px !important;
+    font-family: 'Cairo', sans-serif;
+
+}
+.no-border-btn {
+  border: none;
+  background: none; 
+  font-family: inherit;
+  font-size: inherit;
+  cursor: pointer;
+  padding: 0; 
+  color: #410B5F ;
+  text-decoration: underline;
+  font-family: 'Cairo', sans-serif;
+
+
 }
 
 

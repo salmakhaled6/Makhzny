@@ -1,144 +1,146 @@
+
 import React, { useState, useEffect } from "react";
 import RentCard from "../Components/RentCard";
 import { getBranches } from "../api/products";
-
+import { useLang } from "../contexts/LanguageContext";
 import "../Styles/RentNow.css";
 
 function RentNow() {
-  const [branches, setBranches] = useState([]);
-  const [selectedBranch, setSelectedBranch] = useState("");
-  const [minPrice, setMinPrice] = useState("");
-  const [maxPrice, setMaxPrice] = useState("");
-  const [minSize, setMinSize] = useState("");
-  const [maxSize, setMaxSize] = useState("");
+  const { t } = useLang();
 
-  useEffect(() => {
-    async function fetchBranches() {
-      try {
-        const data = await getBranches();
-        console.log("Fetched success:", data);
-        setBranches(Array.isArray(data) ? data : []);
-      } catch (err) {
-        console.error("Failed to fetch ", err);
-      }
-    }
+  const branchOptions = [
+    { id: 2, name: "Jeddah" },
+    { id: 3, name: "Riyadh" },
+    { id: 4, name: "Dammam" },
+  ];
 
-    fetchBranches();
-  }, []);
+  const maxPriceLimit = 6210;
+  const maxSizeLimit = 36;
+  const priceGap = 0;
+  const sizeGap = 0;
 
-  const handleSelect = (e) => {
-    setSelectedBranch(e.target.value);
-  };
-
-  const filteredBranches = selectedBranch
-    ? branches.filter((b) => b.name === selectedBranch)
-    : branches;
+  const [selectedBranch, setSelectedBranch] = useState("3");
+  const [minPrice, setMinPrice] = useState(0);
+  const [maxPrice, setMaxPrice] = useState(maxPriceLimit);
+  const [minSize, setMinSize] = useState(0);
+  const [maxSize, setMaxSize] = useState(maxSizeLimit);
+  const [filteredUnits, setFilteredUnits] = useState([]);
 
   const handleApplyFilters = async () => {
+    const filters = {
+      Min_Price: minPrice,
+      Max_Price: maxPrice,
+      Min_Size: minSize,
+      Max_Size: maxSize,
+    };
+
+    if (selectedBranch) {
+      filters.company_id = Number(selectedBranch);
+    }
+
     try {
-      const filters = {
-        Min_Price: minPrice || 0,
-        Max_Price: maxPrice || 999999,
-        Min_Size: minSize || 0,
-        Max_Size: maxSize || 999999,
-      };
-
       const data = await getBranches(filters);
-      console.log("Fetched:", data);
-
-      const locationFiltered = selectedBranch
-        ? (Array.isArray(data) ? data : []).filter(
-            (b) => b.name === selectedBranch
-          )
-        : Array.isArray(data)
-        ? data
-        : [];
-
-      setBranches(locationFiltered);
+      setFilteredUnits(Array.isArray(data) ? data : []);
     } catch (err) {
-      console.error("Failed to fetch :", err);
+      console.error("Failed to fetch:", err);
     }
   };
+
+  useEffect(() => {
+    handleApplyFilters();
+  }, []);
 
   return (
     <div className="RentNow">
       <div className="Rent-Bar">
         <div className="Rent-Bar-box">
-          <h2>Rent now</h2>
-          <p>
-            Experience the freedom of a clutter-free space today! At{" "}
-            <strong>Makhzny</strong>, we invite you to elevate your lifestyle by
-            renting our secure and accessible storage solutions.
-          </p>
+          <h2>{t("rentNow")}</h2>
+          <p>{t("rentNowDescription")}</p>
         </div>
       </div>
+
       <div className="range-container">
-      <div className="Range-box">
+        <div className="Range-box">
         <div className="range-filter">
-          <p>Price Range</p>
-          <div className="input-pair">
-            <input
-              type="number"
-              placeholder="0"
-              value={minPrice}
-              onChange={(e) => setMinPrice(e.target.value)}
-            />
-            <span> - </span>
-            <input
-              type="number"
-              placeholder="6210"
-              value={maxPrice}
-              onChange={(e) => setMaxPrice(e.target.value)}
-            />
+  <p>{t("priceRange")}</p>
+  <div className="input-pair price-range-input">
+    <input
+      type="number"
+      value={minPrice}
+      min={0}
+      max={maxPrice - priceGap}
+      onChange={(e) => {
+        const val = Number(e.target.value);
+        if (maxPrice - val >= priceGap) setMinPrice(val);
+      }}
+    />
+    <span> - </span>
+    <input
+      type="number"
+      value={maxPrice}
+      min={minPrice + priceGap}
+      max={maxPriceLimit}
+      onChange={(e) => {
+        const val = Number(e.target.value);
+        if (val - minPrice >= priceGap) setMaxPrice(val);
+      }}
+    />
+  </div>
+</div>
+
+<div className="range-filter">
+  <p>{t("sizeRange")}</p>
+  <div className="input-pair size-range-input">
+    <input
+      type="number"
+      value={minSize}
+      min={0}
+      max={maxSize - sizeGap}
+      onChange={(e) => {
+        const val = Number(e.target.value);
+        if (maxSize - val >= sizeGap) setMinSize(val);
+      }}
+    />
+    <span> - </span>
+    <input
+      type="number"
+      value={maxSize}
+      min={minSize + sizeGap}
+      max={maxSizeLimit}
+      onChange={(e) => {
+        const val = Number(e.target.value);
+        if (val - minSize >= sizeGap) setMaxSize(val);
+      }}
+    />
+  </div>
+</div>
+
+
+          <div className="range-filter">
+            <p>{t("location")}</p>
+            <select
+              value={selectedBranch}
+              onChange={(e) => setSelectedBranch(e.target.value)}
+            >
+              <option value="">{t("all")}</option>
+              {branchOptions.map((branch) => (
+                <option key={branch.id} value={branch.id}>
+                  {branch.name}
+                </option>
+              ))}
+            </select>
+          </div>
+
+          <div className="range-filter apply-button">
+            <button onClick={handleApplyFilters}>{t("apply")}</button>
           </div>
         </div>
-
-        <div className="range-filter">
-          <p>Size Range</p>
-          <div className="input-pair">
-            <input
-              type="number"
-              placeholder="0"
-              value={minSize}
-              onChange={(e) => setMinSize(e.target.value)}
-            />
-            <span> - </span>
-            <input
-              type="number"
-              placeholder="26"
-              value={maxSize}
-              onChange={(e) => setMaxSize(e.target.value)}
-            />
-          </div>
-        </div>
-
-        <div className="range-filter">
-          <p>Location</p>
-          <select onChange={handleSelect}>
-  <option value="">All</option>
-  {(() => {
-    console.log("Branches for select:", branches);
-    return branches.map((branch) => (
-      <option key={branch.id} value={branch.name}>
-        {branch.name}
-      </option>
-    ));
-  })()}
-</select>
-
-        </div>
-
-        <div className="range-filter apply-button">
-          <button onClick={handleApplyFilters}>Apply</button>
-        </div>
-      </div>
       </div>
 
-     
-
-      <RentCard cards={filteredBranches} />
+      <RentCard cards={filteredUnits} />
     </div>
   );
 }
 
 export default RentNow;
+

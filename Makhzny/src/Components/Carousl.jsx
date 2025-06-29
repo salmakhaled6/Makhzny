@@ -1,22 +1,29 @@
 import React from "react";
 import "../Styles/Carousl.css";
 import img from "../assets/3.png";
+import { useNavigate } from "react-router-dom";
+import { useLang } from "../contexts/LanguageContext";
 
 function Carousl() {
+  const navigate = useNavigate();
+  const { t } = useLang(); 
+
   return (
     <div className="carousl-wrapper">
       <div className="carousl-container">
         <div>
-          <h2>Store with us</h2>
-          <p className="p1">​The First Self Storage Company in 🇸🇦</p>
-          <p className="p2">Space for Whatever You Need 🚀</p>
+          <h2>{t("storeWithUs")}</h2>
+          <p className="p1">{t("firstStorageCompany")}</p>
+          <p className="p2">{t("spaceForNeed")}</p>
           <div className="Carousl-btns">
-            <button>احصل علي تسعيرة</button>
-            <button>خذلك لفه في مخزني</button>
+            <button onClick={() => navigate("/RequestQuote")}>
+              {t("requestQuote")}
+            </button>
+            <button>{t("takeTour")}</button>
           </div>
         </div>
         <div className="imgs">
-          <h3>Take a Tour with Makhzny 😍</h3>
+          <h3>{t("takeTour")}</h3>
           <img src={img} alt="" />
         </div>
       </div>

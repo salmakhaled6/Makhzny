@@ -6,19 +6,22 @@ import React from "react";
 import work1 from "../assets/work1.png";
 import work2 from "../assets/work2.png";
 import "../Styles/Works.css";
+import { useLang } from "../contexts/LanguageContext"; 
+
 
 function HowItWorks() {
+  const { t, lang } = useLang();
+
   return (
-    <div className="HowitWorks-page">
+<div className="HowitWorks-page" dir={lang === "ar" ? "rtl" : "ltr"}>
       <div className="HowitWorks-Bar">
       <div className="container">
         <div className="HowitWorks-Bar-box">
-          <h2>How It Works ?</h2>
-          <p>
-            Utilizing our state-of-the-art storage facilities is a
-            straightforward process at <span> Makhzny.</span>  Follow the simple steps to make
-            the most of your storage experience.
-          </p>
+        <h2>{t("howItWorks")}</h2>
+        <p>
+  {t("howItWorksDesc")} <span>Makhzny</span>. 
+  {/* {t("howItWorksDesc2") } */}
+</p>
         </div>
         </div>
       </div>
@@ -27,11 +30,9 @@ function HowItWorks() {
       <div className="container">
         <div className="howit-step image-right">
           <div className="howit-text">
-            <h3> Storage Made Simple!</h3>
-            <p>
-              Storage as easy as 1, 2, 3. Once you choose the appropriate size
-              for your needs, you can start with us.
-            </p>
+          <h3>{t("storageMadeSimple")}</h3>
+          <p>{t("storageSimpleDesc")}</p>
+
           </div>
           <img src={work1} alt="Step 1" />
         </div>
@@ -39,22 +40,17 @@ function HowItWorks() {
         <div className="howit-step image-close">
           <img src={work2} alt="Step 2" />
           <div className="howit-text">
-            <h3> Simplify Your Space Journey!</h3>
-            <p>
-              All the processing is online and all you need is to book and
-              signup to start freeing up some space.
-            </p>
+          <h3>{t("simplifyJourney")}</h3>
+          <p>{t("simplifyJourneyDesc")}</p>
+
           </div>
         </div>
 
         <div className="howit-step image-right">
           <div className="howit-text">
-            <h3> Storage Made Simple!</h3>
-            <p>
-              To know all the required conditions, or to simply inquire about
-              details regarding your storage situation, please don’t hesitate to
-              contact us..
-            </p>
+          <h3>{t("storageMadeSimple")}</h3>
+          <p>{t("contactDesc")}</p>
+
           </div>
           <img src={work1} alt="Step 3" />
         </div>
@@ -62,8 +58,8 @@ function HowItWorks() {
         <div className="howit-step image-close">
           <img src={work2} alt="Step 4" />
           <div className="howit-text">
-            <h3> Start Living Lighter!</h3>
-            <p>Store with us now. And Make your life easier.</p>
+          <h3>{t("startLiving")}</h3>
+          <p>{t("startLivingDesc")}</p>
           </div>
         </div>
       </div>

@@ -3,6 +3,8 @@ import pic1 from "../assets/pic1.jpg";
 import "../Styles/RentCard.css";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
+import { useLang } from "../contexts/LanguageContext";
+
 
 function RentCard({ cards }) {
   const [showPopup, setShowPopup] = useState(false);
@@ -12,6 +14,18 @@ function RentCard({ cards }) {
   const [entryDate, setEntryDate] = useState("");
   const [promoValid, setPromoValid] = useState(null);
   const [promoLoading, setPromoLoading] = useState(false);
+
+const currentUser = JSON.parse(localStorage.getItem("user"));
+console.log(" Current user:", currentUser);
+
+
+
+
+  const { t } = useLang()
+
+
+
+
   const checkPromoValidity = async () => {
     setPromoLoading(true);
     try {
@@ -33,6 +47,8 @@ function RentCard({ cards }) {
   };
 
   const handleBookClick = async (card) => {
+    setEntryDate(new Date().toISOString().split("T")[0]);
+
     setSelectedCard(card);
     setShowPopup(true);
     await checkPromoValidity();
@@ -57,7 +73,7 @@ function RentCard({ cards }) {
     };
 
     const payload = {
-      partner_id: 3,
+      partner_id: currentUser.id,
       branch_id: selectedCard.branch_id || 2,
       unit_id: selectedCard.id,
       installment_duration: periodMap[selectedPeriod],
@@ -117,122 +133,114 @@ function RentCard({ cards }) {
       </div>
 
       {showPopup && (
-        <div className="popup-overlay-rentcard">
-          <div className="popup-rentcard">
-            <div className="popup-box-rentcard">
-              <h3>Rental Options</h3>
-              <p className="subtitle">Invoice Period</p>
-              <p className="description">
-                Select the duration for your payment
-              </p>
+  <div className="popup-overlay-rentcard">
+    <div className="popup-rentcard">
+      <div className="popup-box-rentcard">
+        <h3>{t("rentalOptions")}</h3>
+        <p className="subtitle">{t("invoicePeriod")}</p>
+        <p className="description">{t("selectDuration")}</p>
 
-              <div className="radio-group">
-                <label className="radio-option">
-                  <input
-                    type="radio"
-                    name="period"
-                    value="monthly"
-                    checked={selectedPeriod === "monthly"}
-                    onChange={() => setSelectedPeriod("monthly")}
-                  />
-                  <span
-                    className={selectedPeriod === "monthly" ? "selected" : ""}
-                  >
-                    Monthly (0% discount)
-                  </span>
-                </label>
+        <div className="radio-group">
+          <label className="radio-option">
+            <input
+              type="radio"
+              name="period"
+              value="monthly"
+              checked={selectedPeriod === "monthly"}
+              onChange={() => setSelectedPeriod("monthly")}
+            />
+            <span className={selectedPeriod === "monthly" ? "selected" : ""}>
+              {t("monthly")}
+            </span>
+          </label>
 
-                <label className="radio-option">
-                  <input
-                    type="radio"
-                    name="period"
-                    value="3months"
-                    checked={selectedPeriod === "3months"}
-                    onChange={() => setSelectedPeriod("3months")}
-                  />
-                  <span
-                    className={selectedPeriod === "3months" ? "selected" : ""}
-                  >
-                    3 Months (5% discount)
-                  </span>
-                </label>
-              </div>
-
-              <div className="radio-group">
-                <label className="radio-option">
-                  <input
-                    type="radio"
-                    name="period"
-                    value="6months"
-                    checked={selectedPeriod === "6months"}
-                    onChange={() => setSelectedPeriod("6months")}
-                  />
-                  <span
-                    className={selectedPeriod === "6months" ? "selected" : ""}
-                  >
-                    6 Months (15% discount)
-                  </span>
-                </label>
-
-                <label className="radio-option">
-                  <input
-                    type="radio"
-                    name="period"
-                    value="annual"
-                    checked={selectedPeriod === "annual"}
-                    onChange={() => setSelectedPeriod("annual")}
-                  />
-                  <span
-                    className={selectedPeriod === "annual" ? "selected" : ""}
-                  >
-                    Annual (35% discount)
-                  </span>
-                </label>
-              </div>
-
-              <hr />
-
-              <p className="subtitle">Select The Warehouse Entry Date</p>
-              <p className="description">Choose the entry date you prefer</p>
-
-              <label className="date-label" htmlFor="entryDate">
-                Start In
-              </label>
-              <input
-                type="date"
-                id="entryDate"
-                className="date-input"
-                value={entryDate}
-                onChange={(e) => setEntryDate(e.target.value)}
-              />
-            </div>
-            <div className="promo-result">
-              {promoLoading && <p>Checking promo code...</p>}
-              {promoValid === true && (
-                <p style={{ color: "green" }}>Promo code is valid!</p>
-              )}
-              {promoValid === false && (
-                <p style={{ color: "red" }}>Promo code is invalid.</p>
-              )}
-            </div>
-
-            <div className="popup-footer">
-              <p className="total">Total: {selectedCard.price}</p>
-              <div className="rent-card-buttons">
-                <button className="rent-btn" onClick={handleClosePopup}>
-                  Cancel
-                </button>
-
-                <button className="rent-btn" onClick={handleRent}>
-                  Rent
-                </button>
-              </div>
-
-              {/* <button className="close-btn" onClick={handleClosePopup}>Close</button> */}
-            </div>
-          </div>
+          <label className="radio-option">
+            <input
+              type="radio"
+              name="period"
+              value="3months"
+              checked={selectedPeriod === "3months"}
+              onChange={() => setSelectedPeriod("3months")}
+            />
+            <span className={selectedPeriod === "3months" ? "selected" : ""}>
+              {t("threeMonths")}
+            </span>
+          </label>
         </div>
-      )}
+
+        <div className="radio-group">
+          <label className="radio-option">
+            <input
+              type="radio"
+              name="period"
+              value="6months"
+              checked={selectedPeriod === "6months"}
+              onChange={() => setSelectedPeriod("6months")}
+            />
+            <span className={selectedPeriod === "6months" ? "selected" : ""}>
+              {t("sixMonths")}
+            </span>
+          </label>
+
+          <label className="radio-option">
+            <input
+              type="radio"
+              name="period"
+              value="annual"
+              checked={selectedPeriod === "annual"}
+              onChange={() => setSelectedPeriod("annual")}
+            />
+            <span className={selectedPeriod === "annual" ? "selected" : ""}>
+              {t("annual")}
+            </span>
+          </label>
+        </div>
+
+        <hr />
+
+        <p className="subtitle">{t("warehouseEntryDate")}</p>
+        <p className="description">{t("chooseDate")}</p>
+
+        <label className="date-label" htmlFor="entryDate">
+          {t("startIn")}
+        </label>
+        <input
+          type="date"
+          id="entryDate"
+          className="date-input"
+          value={entryDate}
+          readOnly
+        />
+      </div>
+
+      <div className="promo-result">
+        {promoLoading && <p>{t("checkingPromo")}</p>}
+        {promoValid === true && (
+          <p style={{ color: "green" }}>{t("promoValid")}</p>
+        )}
+        {promoValid === false && (
+          <p style={{ color: "red" }}>{t("promoInvalid")}</p>
+        )}
+      </div>
+
+      <div className="popup-footer">
+        <p className="total">
+          {t("total")}: {selectedCard.price}
+        </p>
+        <div className="rent-card-buttons">
+          <button className="rent-btn" onClick={handleClosePopup}>
+            {t("cancel")}
+          </button>
+
+          <button className="rent-btn" onClick={handleRent}>
+            {t("rent")}
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+)}
+
     </>
   );
 }

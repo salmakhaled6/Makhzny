@@ -1,4 +1,6 @@
 import React from 'react';
+import { useLang } from '../contexts/LanguageContext';
+
 import logo1 from '../assets/logo1.png';
 import logo2 from '../assets/logo2.png';
 import logo3 from '../assets/logo3.png';
@@ -11,19 +13,25 @@ import logo9 from '../assets/logo9.png';
 import logo10 from '../assets/logo10.png';
 import logo11 from '../assets/logo11.png';
 import logo12 from '../assets/logo12.png';
+import logo13 from '../assets/logo13.png';
+import logo14 from '../assets/logo14.png';
+import logo15 from '../assets/logo15.png';
+
 
 import '../Styles/partners.css';
 
 function Partners() {
+  const { t } = useLang();
+
   const logos = [
     logo1, logo2, logo3, logo4, logo5, logo6,
-    logo7, logo8, logo9, logo10, logo11, logo12,
+    logo7, logo8, logo9, logo10, logo11, logo12,logo13,logo14,logo15
   ];
 
   return (
     <div className="partners-section">
-      <h2>Our Clients</h2>
-      <p>Driving Success Through Clients</p>
+      <h2>{t("ourClients")}</h2>
+      <p>{t("drivingSuccess")}</p>
       <div className="partners-slider">
         <div className="partners-track">
           {logos.concat(logos).map((logo, index) => (

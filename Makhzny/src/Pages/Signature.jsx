@@ -1,5 +1,7 @@
 import React, { useRef, useEffect, useState } from 'react';
 import { useLocation } from 'react-router-dom';
+import { useLang } from "../contexts/LanguageContext";
+
 import axios from 'axios';
 import '../Styles/Signature.css';
 
@@ -7,9 +9,14 @@ function Signature() {
   const canvasRef = useRef(null);
   const ctxRef = useRef(null);
   const [isDrawing, setIsDrawing] = useState(false);
-  
+  const [isChecked, setIsChecked] = useState(false);
+  const [showAlert, setShowAlert] = useState(false); 
+  const { t } = useLang();
+
+
+
   const location = useLocation();
-  const { reservationId } = location.state || {}; 
+  const { reservationId } = location.state || {};
 
   useEffect(() => {
     const canvas = canvasRef.current;
@@ -61,73 +68,99 @@ function Signature() {
   };
 
   const handleSave = async () => {
+    if (!isChecked) {
+      setShowAlert(true); 
+
+      return;
+    }
+
     if (!reservationId) {
       alert("Reservation ID is missing.");
       return;
     }
-  
+
     const canvas = canvasRef.current;
     const base64Signature = canvas.toDataURL("image/png");
-  
+
     try {
       const saveSignRes = await axios.post("https://makhzny.odoo.com/save_sign", {
         reservation_id: reservationId,
         sign: base64Signature,
       });
-  
+
       const success = saveSignRes?.data?.result?.data?.success;
       if (!success) {
-        alert(" Failed to save signature.");
+        alert("Failed to save signature.");
         return;
       }
-  
+
       const response = await fetch(`https://makhzny.odoo.com/generate_session/${reservationId}`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify({}), 
+        body: JSON.stringify({}),
       });
-  
+
       const result = await response.json();
       const sessionLink = result?.result?.data;
-  
+
       if (sessionLink) {
         window.location.href = sessionLink;
       } else {
-        alert(" Session link not found.");
+        alert("Session link not found.");
       }
-  
+
     } catch (error) {
       console.error("Error:", error);
-      alert(" Something went wrong.");
+      alert("Something went wrong.");
     }
   };
-  
-  
-  
+  const closeAlert = () => {
+    setShowAlert(false);
+  };
 
   return (
     <div className="signature-container">
-      <label className="terms">
-        <input type="checkbox" />
-        <span>I accept the terms and conditions of <strong>Makhzny</strong></span>
-      </label>
-
-      <canvas
-        ref={canvasRef}
-        onMouseDown={startDrawing}
-        onMouseUp={finishDrawing}
-        onMouseMove={draw}
-        onMouseLeave={finishDrawing}
-        className="signature-canvas"
-      ></canvas>
-
-      <div className="signature-buttons">
-        <button className="clear-btn" onClick={clearCanvas}>Clear</button>
-        <button className="save-btn" onClick={handleSave}>Save</button>
-      </div>
+    <label className="terms">
+      <input
+        type="checkbox"
+        checked={isChecked}
+        onChange={(e) => setIsChecked(e.target.checked)}
+      />
+      <span>
+        {t("acceptTerms")} <strong>Makhzny</strong>
+      </span>
+    </label>
+  
+    <canvas
+      ref={canvasRef}
+      onMouseDown={startDrawing}
+      onMouseUp={finishDrawing}
+      onMouseMove={draw}
+      onMouseLeave={finishDrawing}
+      className="signature-canvas"
+    ></canvas>
+  
+    <div className="signature-buttons">
+      <button className="clear-btn" onClick={clearCanvas}>
+        {t("clear")}
+      </button>
+      <button className="save-btn" onClick={handleSave} disabled={!isChecked}>
+        {t("save")}
+      </button>
     </div>
+  
+    {showAlert && (
+      <div className="custom-alert-overlay">
+        <div className="custom-alert-box">
+          <p>{t("pleaseAcceptTerms")}</p>
+          <button onClick={closeAlert}>{t("ok")}</button>
+        </div>
+      </div>
+    )}
+  </div>
+  
   );
 }
 

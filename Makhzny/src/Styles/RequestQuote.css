@@ -36,6 +36,14 @@
     line-height: 1.7;
     color: rgba(0, 0, 0, 0.6);
   }
+  [dir="rtl"] .request-quote-box {
+    text-align: right;
+  }
+  
+  [dir="rtl"] .request-quote-box h2,
+  [dir="rtl"] .request-quote-box p {
+    direction: rtl;
+  }
   
   @media (max-width: 768px) {
     .request-quote-box {

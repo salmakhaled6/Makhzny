@@ -26,7 +26,7 @@
 .partners-track {
   display: flex;
   gap: 100px;
-  animation: scroll 30s linear infinite;
+  animation: scroll 45s linear infinite;
   width: fit-content;
 }
 
@@ -44,9 +44,14 @@
 }
 
 @keyframes scroll {
-  0% { transform: translateX(0); }
-  100% { transform: translateX(-50%); }
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
 }
+
 
 
 @media (max-width: 992px) {

@@ -7,13 +7,16 @@ import c4 from "../assets/c4.png";
 import c5 from "../assets/c5.png";
 import c6 from "../assets/c6.png";
 import "../styles/Store.css";
+import { useLang } from "../contexts/LanguageContext"; 
 
 function Store() {
+  const { t } = useLang(); 
+
   return (
     <div className="store-container">
       <div className="store-header">
-        <h2>Explore Your Storage Choices</h2>
-        <p>Which possessions can be kept in storage?</p>
+        <h2>{t("exploreStorage")}</h2>
+        <p>{t("whatToStore")}</p>
       </div>
 
       <div className="store-content">
@@ -27,34 +30,29 @@ function Store() {
           <div className="store-icon-row">
             <div className="store-icon">
               <img src={c1} alt="item 1" />
-              <p>Personal Belongings</p>
+              <p>{t("personal")}</p>
             </div>
             <div className="store-icon">
               <img src={c2} alt="item 2" />
-              <p>Commercial Goods</p>
-
+              <p>{t("commercial")}</p>
             </div>
             <div className="store-icon">
               <img src={c3} alt="item 3" />
-              <p> Food and Beverages​</p>
-
+              <p>{t("food")}</p>
             </div>
           </div>
           <div className="store-icon-row">
             <div className="store-icon">
               <img src={c4} alt="item 4" />
-              <p>  Cosmetics and Perfumes</p>
-
+              <p>{t("cosmetics")}</p>
             </div>
             <div className="store-icon">
               <img src={c5} alt="item 5" />
-              <p>Furniture</p>
-
+              <p>{t("furniture")}</p>
             </div>
             <div className="store-icon">
               <img src={c6} alt="item 6" />
-              <p>Medical Equipment and Supplies</p>
-
+              <p>{t("medical")}</p>
             </div>
           </div>
         </div>

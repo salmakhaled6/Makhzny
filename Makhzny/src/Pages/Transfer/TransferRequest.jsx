@@ -1,30 +1,33 @@
-import React from 'react'
-import transfer from '../../assets/transfer.png'
-import '../../Styles/TransferRequest.css'
-import { useNavigate } from 'react-router-dom'
+import React from 'react';
+import transfer from '../../assets/transfer.png';
+import '../../Styles/TransferRequest.css';
+import { useNavigate } from 'react-router-dom';
+import { useLang } from '../../contexts/LanguageContext'; 
+
 
 function TransferRequest() {
   const navigate = useNavigate();
+  const { t, lang } = useLang();
 
   const handleRequestClick = () => {
     navigate('/Form');
   };
 
   return (
-    <div className="transfer-page">
+<div className="transfer-page" dir={lang === "ar" ? "rtl" : "ltr"}>
       <div className="transfer-hero">
         <div className="transfer-hero-box">
-          <h2>Transfer Request</h2>
-          <p>
-            "We ensure safe and fast transfer of your belongings. Professional moving service - Punctual & fully insured."
-          </p>
+          <h2>{t("transferRequest")}</h2>
+          <p>{t("transferDescription")}</p>
         </div>
       </div>
 
       <div className="transfer-content">
         <img src={transfer} alt="Transfer Icon" />
-        <p>You have no transfer requests at the moment!</p>
-        <button className="transfer-btn" onClick={handleRequestClick}>Request Now</button>
+        <p>{t("noTransfers")}</p>
+        <button className="transfer-btn" onClick={handleRequestClick}>
+          {t("requestNow")}
+        </button>
       </div>
     </div>
   );

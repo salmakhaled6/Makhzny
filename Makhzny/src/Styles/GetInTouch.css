@@ -41,6 +41,11 @@
     color: rgba(0, 0, 0, 0.6);
     
   }
+  .getinTouch-box {
+    text-align: start;
+  }
+  
+
   .contact-info {
     display: flex;
     flex-direction: column;
